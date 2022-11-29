@@ -92,6 +92,8 @@ template <typename Derived, typename Key, typename T,
           WireFormatLite::FieldType value_wire_type>
 class MapField;
 
+struct MapTestPeer;
+
 template <typename Key, typename T>
 class TypeDefinedMapFieldBase;
 
@@ -459,6 +461,7 @@ class PROTOBUF_EXPORT UntypedMapBase {
 
  protected:
   friend class TcParser;
+  friend struct MapTestPeer;
 
   struct NodeAndBucket {
     NodeBase* node;
@@ -578,6 +581,17 @@ class PROTOBUF_EXPORT UntypedMapBase {
   size_type index_of_first_non_null_;
   TableEntryPtr* table_;  // an array with num_buckets_ entries
   Allocator alloc_;
+};
+
+// Base class used by TcParser to extract the map object from a map field.
+// We keep it here to avoid a dependency into map_field.h from the main TcParser
+// code, since that would bring in Message too.
+class MapFieldBaseForParse {
+ public:
+  virtual UntypedMapBase* MutableMap() = 0;
+
+ protected:
+  ~MapFieldBaseForParse() = default;
 };
 
 // The value might be of different signedness, so use memcpy to extract it.
@@ -713,6 +727,9 @@ class KeyMapBase : public UntypedMapBase {
   hasher hash_function() const { return {}; }
 
  protected:
+  friend class TcParser;
+  friend struct MapTestPeer;
+
   PROTOBUF_NOINLINE void erase_no_destroy(size_type b, KeyNode* node) {
     TreeIterator tree_it;
     const bool is_list = revalidate_if_necessary(b, node, &tree_it);
@@ -768,6 +785,25 @@ class KeyMapBase : public UntypedMapBase {
       }
     }
     return {nullptr, b};
+  }
+
+  // Insert the given node.
+  // If the key is a duplicate, it inserts the new node and returns the old one.
+  // Gives ownership to the caller.
+  // If the key is unique, it returns `nullptr`.
+  KeyNode* InsertOrReplaceNode(KeyNode* node) {
+    KeyNode* to_erase = nullptr;
+    auto p = this->FindHelper(node->key());
+    if (p.node != nullptr) {
+      erase_no_destroy(p.bucket, static_cast<KeyNode*>(p.node));
+      to_erase = static_cast<KeyNode*>(p.node);
+    } else if (ResizeIfLoadIsOutOfRange(num_elements_ + 1)) {
+      p = FindHelper(node->key());
+    }
+    const size_type b = p.bucket;  // bucket number
+    InsertUnique(b, node);
+    ++num_elements_;
+    return to_erase;
   }
 
   // Insert the given Node in bucket b.  If that would make bucket b too big,
@@ -1565,6 +1601,8 @@ class Map : private internal::KeyMapBase<internal::KeyForBase<Key>> {
             internal::WireFormatLite::FieldType key_wire_type,
             internal::WireFormatLite::FieldType value_wire_type>
   friend class internal::MapFieldLite;
+  friend class internal::TcParser;
+  friend struct internal::MapTestPeer;
 };
 
 namespace internal {
