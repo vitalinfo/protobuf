@@ -968,13 +968,22 @@ class PROTOC_EXPORT NamespaceOpener {
 
 void GenerateUtf8CheckCodeForString(const FieldDescriptor* field,
                                     const Options& options, bool for_parse,
-                                    const char* parameters,
+                                    absl::string_view parameters,
                                     const Formatter& format);
 
 void GenerateUtf8CheckCodeForCord(const FieldDescriptor* field,
                                   const Options& options, bool for_parse,
-                                  const char* parameters,
+                                  absl::string_view parameters,
                                   const Formatter& format);
+
+void GenerateUtf8CheckCodeForString(io::Printer* p,
+                                    const FieldDescriptor* field,
+                                    const Options& options, bool for_parse,
+                                    absl::string_view parameters);
+
+void GenerateUtf8CheckCodeForCord(io::Printer* p, const FieldDescriptor* field,
+                                  const Options& options, bool for_parse,
+                                  absl::string_view parameters);
 
 struct OneOfRangeImpl {
   struct Iterator {
@@ -1041,6 +1050,14 @@ VerifySimpleType ShouldVerifySimple(const Descriptor* descriptor);
 bool IsUtf8String(const FieldDescriptor* field);
 
 bool HasMessageFieldOrExtension(const Descriptor* desc);
+
+// Generates a vector of substitutions for use with Printer::WithVars that
+// contains annotated accessor names for a particular field.
+//
+// Each substitution will be named `absl::StrCat(prefix, "name")`, and will
+// be annotated with `field`.
+std::vector<io::Printer::Sub> AnnotatedAccessors(
+    const FieldDescriptor* field, absl::Span<const absl::string_view> prefixes);
 
 }  // namespace cpp
 }  // namespace compiler

@@ -729,19 +729,21 @@ class PROTOBUF_EXPORT FileDescriptorProto final :
   void set_dependency(int index, const std::string& value);
   void set_dependency(int index, std::string&& value);
   void set_dependency(int index, const char* value);
+  void set_dependency(int index, const char* value, std::size_t size);
   void set_dependency(int index, absl::string_view value);
-  void set_dependency(int index, const char* value, ::size_t size);
   std::string* add_dependency();
   void add_dependency(const std::string& value);
   void add_dependency(std::string&& value);
   void add_dependency(const char* value);
+  void add_dependency(const char* value, std::size_t size);
   void add_dependency(absl::string_view value);
-  void add_dependency(const char* value, ::size_t size);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& dependency() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_dependency();
+
   private:
   const std::string& _internal_dependency(int index) const;
   std::string* _internal_add_dependency();
+
   public:
   // repeated .google.protobuf.DescriptorProto message_type = 4;
   int message_type_size() const;
@@ -859,57 +861,69 @@ class PROTOBUF_EXPORT FileDescriptorProto final :
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional string package = 2;
   bool has_package() const;
   void clear_package() ;
   const std::string& package() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_package(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_package(Arg&& arg, Args... args);
   std::string* mutable_package();
   PROTOBUF_NODISCARD std::string* release_package();
-  void set_allocated_package(std::string* package);
+  void set_allocated_package(std::string* ptr);
+
   private:
   const std::string& _internal_package() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_package(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_package(
+      const std::string& value);
   std::string* _internal_mutable_package();
+
   public:
   // optional string syntax = 12;
   bool has_syntax() const;
   void clear_syntax() ;
   const std::string& syntax() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_syntax(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_syntax(Arg&& arg, Args... args);
   std::string* mutable_syntax();
   PROTOBUF_NODISCARD std::string* release_syntax();
-  void set_allocated_syntax(std::string* syntax);
+  void set_allocated_syntax(std::string* ptr);
+
   private:
   const std::string& _internal_syntax() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_syntax(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_syntax(
+      const std::string& value);
   std::string* _internal_mutable_syntax();
+
   public:
   // optional string edition = 13;
   bool has_edition() const;
   void clear_edition() ;
   const std::string& edition() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_edition(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_edition(Arg&& arg, Args... args);
   std::string* mutable_edition();
   PROTOBUF_NODISCARD std::string* release_edition();
-  void set_allocated_edition(std::string* edition);
+  void set_allocated_edition(std::string* ptr);
+
   private:
   const std::string& _internal_edition() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_edition(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_edition(
+      const std::string& value);
   std::string* _internal_mutable_edition();
+
   public:
   // optional .google.protobuf.FileOptions options = 8;
   bool has_options() const;
@@ -1600,33 +1614,38 @@ class PROTOBUF_EXPORT DescriptorProto final :
   void set_reserved_name(int index, const std::string& value);
   void set_reserved_name(int index, std::string&& value);
   void set_reserved_name(int index, const char* value);
+  void set_reserved_name(int index, const char* value, std::size_t size);
   void set_reserved_name(int index, absl::string_view value);
-  void set_reserved_name(int index, const char* value, ::size_t size);
   std::string* add_reserved_name();
   void add_reserved_name(const std::string& value);
   void add_reserved_name(std::string&& value);
   void add_reserved_name(const char* value);
+  void add_reserved_name(const char* value, std::size_t size);
   void add_reserved_name(absl::string_view value);
-  void add_reserved_name(const char* value, ::size_t size);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& reserved_name() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_reserved_name();
+
   private:
   const std::string& _internal_reserved_name(int index) const;
   std::string* _internal_add_reserved_name();
+
   public:
   // optional string name = 1;
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional .google.protobuf.MessageOptions options = 7;
   bool has_options() const;
@@ -2182,71 +2201,86 @@ class PROTOBUF_EXPORT FieldDescriptorProto final :
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional string extendee = 2;
   bool has_extendee() const;
   void clear_extendee() ;
   const std::string& extendee() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_extendee(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_extendee(Arg&& arg, Args... args);
   std::string* mutable_extendee();
   PROTOBUF_NODISCARD std::string* release_extendee();
-  void set_allocated_extendee(std::string* extendee);
+  void set_allocated_extendee(std::string* ptr);
+
   private:
   const std::string& _internal_extendee() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_extendee(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_extendee(
+      const std::string& value);
   std::string* _internal_mutable_extendee();
+
   public:
   // optional string type_name = 6;
   bool has_type_name() const;
   void clear_type_name() ;
   const std::string& type_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_type_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_type_name(Arg&& arg, Args... args);
   std::string* mutable_type_name();
   PROTOBUF_NODISCARD std::string* release_type_name();
-  void set_allocated_type_name(std::string* type_name);
+  void set_allocated_type_name(std::string* ptr);
+
   private:
   const std::string& _internal_type_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_type_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_type_name(
+      const std::string& value);
   std::string* _internal_mutable_type_name();
+
   public:
   // optional string default_value = 7;
   bool has_default_value() const;
   void clear_default_value() ;
   const std::string& default_value() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_default_value(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_default_value(Arg&& arg, Args... args);
   std::string* mutable_default_value();
   PROTOBUF_NODISCARD std::string* release_default_value();
-  void set_allocated_default_value(std::string* default_value);
+  void set_allocated_default_value(std::string* ptr);
+
   private:
   const std::string& _internal_default_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_value(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_default_value(
+      const std::string& value);
   std::string* _internal_mutable_default_value();
+
   public:
   // optional string json_name = 10;
   bool has_json_name() const;
   void clear_json_name() ;
   const std::string& json_name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_json_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_json_name(Arg&& arg, Args... args);
   std::string* mutable_json_name();
   PROTOBUF_NODISCARD std::string* release_json_name();
-  void set_allocated_json_name(std::string* json_name);
+  void set_allocated_json_name(std::string* ptr);
+
   private:
   const std::string& _internal_json_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_json_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_json_name(
+      const std::string& value);
   std::string* _internal_mutable_json_name();
+
   public:
   // optional .google.protobuf.FieldOptions options = 8;
   bool has_options() const;
@@ -2473,15 +2507,18 @@ class PROTOBUF_EXPORT OneofDescriptorProto final :
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional .google.protobuf.OneofOptions options = 2;
   bool has_options() const;
@@ -2866,33 +2903,38 @@ class PROTOBUF_EXPORT EnumDescriptorProto final :
   void set_reserved_name(int index, const std::string& value);
   void set_reserved_name(int index, std::string&& value);
   void set_reserved_name(int index, const char* value);
+  void set_reserved_name(int index, const char* value, std::size_t size);
   void set_reserved_name(int index, absl::string_view value);
-  void set_reserved_name(int index, const char* value, ::size_t size);
   std::string* add_reserved_name();
   void add_reserved_name(const std::string& value);
   void add_reserved_name(std::string&& value);
   void add_reserved_name(const char* value);
+  void add_reserved_name(const char* value, std::size_t size);
   void add_reserved_name(absl::string_view value);
-  void add_reserved_name(const char* value, ::size_t size);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& reserved_name() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_reserved_name();
+
   private:
   const std::string& _internal_reserved_name(int index) const;
   std::string* _internal_add_reserved_name();
+
   public:
   // optional string name = 1;
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional .google.protobuf.EnumOptions options = 3;
   bool has_options() const;
@@ -3063,15 +3105,18 @@ class PROTOBUF_EXPORT EnumValueDescriptorProto final :
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional .google.protobuf.EnumValueOptions options = 3;
   bool has_options() const;
@@ -3269,15 +3314,18 @@ class PROTOBUF_EXPORT ServiceDescriptorProto final :
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional .google.protobuf.ServiceOptions options = 3;
   bool has_options() const;
@@ -3449,43 +3497,52 @@ class PROTOBUF_EXPORT MethodDescriptorProto final :
   bool has_name() const;
   void clear_name() ;
   const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name(Arg&& arg, Args... args);
   std::string* mutable_name();
   PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  void set_allocated_name(std::string* ptr);
+
   private:
   const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(
+      const std::string& value);
   std::string* _internal_mutable_name();
+
   public:
   // optional string input_type = 2;
   bool has_input_type() const;
   void clear_input_type() ;
   const std::string& input_type() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_input_type(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_input_type(Arg&& arg, Args... args);
   std::string* mutable_input_type();
   PROTOBUF_NODISCARD std::string* release_input_type();
-  void set_allocated_input_type(std::string* input_type);
+  void set_allocated_input_type(std::string* ptr);
+
   private:
   const std::string& _internal_input_type() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_input_type(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_input_type(
+      const std::string& value);
   std::string* _internal_mutable_input_type();
+
   public:
   // optional string output_type = 3;
   bool has_output_type() const;
   void clear_output_type() ;
   const std::string& output_type() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_output_type(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_output_type(Arg&& arg, Args... args);
   std::string* mutable_output_type();
   PROTOBUF_NODISCARD std::string* release_output_type();
-  void set_allocated_output_type(std::string* output_type);
+  void set_allocated_output_type(std::string* ptr);
+
   private:
   const std::string& _internal_output_type() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_type(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_output_type(
+      const std::string& value);
   std::string* _internal_mutable_output_type();
+
   public:
   // optional .google.protobuf.MethodOptions options = 4;
   bool has_options() const;
@@ -3736,141 +3793,171 @@ class PROTOBUF_EXPORT FileOptions final :
   bool has_java_package() const;
   void clear_java_package() ;
   const std::string& java_package() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_java_package(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_java_package(Arg&& arg, Args... args);
   std::string* mutable_java_package();
   PROTOBUF_NODISCARD std::string* release_java_package();
-  void set_allocated_java_package(std::string* java_package);
+  void set_allocated_java_package(std::string* ptr);
+
   private:
   const std::string& _internal_java_package() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_java_package(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_java_package(
+      const std::string& value);
   std::string* _internal_mutable_java_package();
+
   public:
   // optional string java_outer_classname = 8;
   bool has_java_outer_classname() const;
   void clear_java_outer_classname() ;
   const std::string& java_outer_classname() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_java_outer_classname(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_java_outer_classname(Arg&& arg, Args... args);
   std::string* mutable_java_outer_classname();
   PROTOBUF_NODISCARD std::string* release_java_outer_classname();
-  void set_allocated_java_outer_classname(std::string* java_outer_classname);
+  void set_allocated_java_outer_classname(std::string* ptr);
+
   private:
   const std::string& _internal_java_outer_classname() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_java_outer_classname(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_java_outer_classname(
+      const std::string& value);
   std::string* _internal_mutable_java_outer_classname();
+
   public:
   // optional string go_package = 11;
   bool has_go_package() const;
   void clear_go_package() ;
   const std::string& go_package() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_go_package(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_go_package(Arg&& arg, Args... args);
   std::string* mutable_go_package();
   PROTOBUF_NODISCARD std::string* release_go_package();
-  void set_allocated_go_package(std::string* go_package);
+  void set_allocated_go_package(std::string* ptr);
+
   private:
   const std::string& _internal_go_package() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_go_package(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_go_package(
+      const std::string& value);
   std::string* _internal_mutable_go_package();
+
   public:
   // optional string objc_class_prefix = 36;
   bool has_objc_class_prefix() const;
   void clear_objc_class_prefix() ;
   const std::string& objc_class_prefix() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_objc_class_prefix(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_objc_class_prefix(Arg&& arg, Args... args);
   std::string* mutable_objc_class_prefix();
   PROTOBUF_NODISCARD std::string* release_objc_class_prefix();
-  void set_allocated_objc_class_prefix(std::string* objc_class_prefix);
+  void set_allocated_objc_class_prefix(std::string* ptr);
+
   private:
   const std::string& _internal_objc_class_prefix() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_objc_class_prefix(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_objc_class_prefix(
+      const std::string& value);
   std::string* _internal_mutable_objc_class_prefix();
+
   public:
   // optional string csharp_namespace = 37;
   bool has_csharp_namespace() const;
   void clear_csharp_namespace() ;
   const std::string& csharp_namespace() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_csharp_namespace(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_csharp_namespace(Arg&& arg, Args... args);
   std::string* mutable_csharp_namespace();
   PROTOBUF_NODISCARD std::string* release_csharp_namespace();
-  void set_allocated_csharp_namespace(std::string* csharp_namespace);
+  void set_allocated_csharp_namespace(std::string* ptr);
+
   private:
   const std::string& _internal_csharp_namespace() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_csharp_namespace(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_csharp_namespace(
+      const std::string& value);
   std::string* _internal_mutable_csharp_namespace();
+
   public:
   // optional string swift_prefix = 39;
   bool has_swift_prefix() const;
   void clear_swift_prefix() ;
   const std::string& swift_prefix() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_swift_prefix(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_swift_prefix(Arg&& arg, Args... args);
   std::string* mutable_swift_prefix();
   PROTOBUF_NODISCARD std::string* release_swift_prefix();
-  void set_allocated_swift_prefix(std::string* swift_prefix);
+  void set_allocated_swift_prefix(std::string* ptr);
+
   private:
   const std::string& _internal_swift_prefix() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_swift_prefix(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_swift_prefix(
+      const std::string& value);
   std::string* _internal_mutable_swift_prefix();
+
   public:
   // optional string php_class_prefix = 40;
   bool has_php_class_prefix() const;
   void clear_php_class_prefix() ;
   const std::string& php_class_prefix() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_php_class_prefix(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_php_class_prefix(Arg&& arg, Args... args);
   std::string* mutable_php_class_prefix();
   PROTOBUF_NODISCARD std::string* release_php_class_prefix();
-  void set_allocated_php_class_prefix(std::string* php_class_prefix);
+  void set_allocated_php_class_prefix(std::string* ptr);
+
   private:
   const std::string& _internal_php_class_prefix() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_php_class_prefix(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_php_class_prefix(
+      const std::string& value);
   std::string* _internal_mutable_php_class_prefix();
+
   public:
   // optional string php_namespace = 41;
   bool has_php_namespace() const;
   void clear_php_namespace() ;
   const std::string& php_namespace() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_php_namespace(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_php_namespace(Arg&& arg, Args... args);
   std::string* mutable_php_namespace();
   PROTOBUF_NODISCARD std::string* release_php_namespace();
-  void set_allocated_php_namespace(std::string* php_namespace);
+  void set_allocated_php_namespace(std::string* ptr);
+
   private:
   const std::string& _internal_php_namespace() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_php_namespace(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_php_namespace(
+      const std::string& value);
   std::string* _internal_mutable_php_namespace();
+
   public:
   // optional string php_metadata_namespace = 44;
   bool has_php_metadata_namespace() const;
   void clear_php_metadata_namespace() ;
   const std::string& php_metadata_namespace() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_php_metadata_namespace(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_php_metadata_namespace(Arg&& arg, Args... args);
   std::string* mutable_php_metadata_namespace();
   PROTOBUF_NODISCARD std::string* release_php_metadata_namespace();
-  void set_allocated_php_metadata_namespace(std::string* php_metadata_namespace);
+  void set_allocated_php_metadata_namespace(std::string* ptr);
+
   private:
   const std::string& _internal_php_metadata_namespace() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_php_metadata_namespace(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_php_metadata_namespace(
+      const std::string& value);
   std::string* _internal_mutable_php_metadata_namespace();
+
   public:
   // optional string ruby_package = 45;
   bool has_ruby_package() const;
   void clear_ruby_package() ;
   const std::string& ruby_package() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ruby_package(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_ruby_package(Arg&& arg, Args... args);
   std::string* mutable_ruby_package();
   PROTOBUF_NODISCARD std::string* release_ruby_package();
-  void set_allocated_ruby_package(std::string* ruby_package);
+  void set_allocated_ruby_package(std::string* ptr);
+
   private:
   const std::string& _internal_ruby_package() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ruby_package(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ruby_package(
+      const std::string& value);
   std::string* _internal_mutable_ruby_package();
+
   public:
   // optional bool java_multiple_files = 10 [default = false];
   bool has_java_multiple_files() const;
@@ -6831,15 +6918,18 @@ class PROTOBUF_EXPORT UninterpretedOption_NamePart final :
   bool has_name_part() const;
   void clear_name_part() ;
   const std::string& name_part() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name_part(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_name_part(Arg&& arg, Args... args);
   std::string* mutable_name_part();
   PROTOBUF_NODISCARD std::string* release_name_part();
-  void set_allocated_name_part(std::string* name_part);
+  void set_allocated_name_part(std::string* ptr);
+
   private:
   const std::string& _internal_name_part() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name_part(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name_part(
+      const std::string& value);
   std::string* _internal_mutable_name_part();
+
   public:
   // required bool is_extension = 2;
   bool has_is_extension() const;
@@ -7031,43 +7121,52 @@ class PROTOBUF_EXPORT UninterpretedOption final :
   bool has_identifier_value() const;
   void clear_identifier_value() ;
   const std::string& identifier_value() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_identifier_value(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_identifier_value(Arg&& arg, Args... args);
   std::string* mutable_identifier_value();
   PROTOBUF_NODISCARD std::string* release_identifier_value();
-  void set_allocated_identifier_value(std::string* identifier_value);
+  void set_allocated_identifier_value(std::string* ptr);
+
   private:
   const std::string& _internal_identifier_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_identifier_value(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_identifier_value(
+      const std::string& value);
   std::string* _internal_mutable_identifier_value();
+
   public:
   // optional bytes string_value = 7;
   bool has_string_value() const;
   void clear_string_value() ;
   const std::string& string_value() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_string_value(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_string_value(Arg&& arg, Args... args);
   std::string* mutable_string_value();
   PROTOBUF_NODISCARD std::string* release_string_value();
-  void set_allocated_string_value(std::string* string_value);
+  void set_allocated_string_value(std::string* ptr);
+
   private:
   const std::string& _internal_string_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_string_value(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_string_value(
+      const std::string& value);
   std::string* _internal_mutable_string_value();
+
   public:
   // optional string aggregate_value = 8;
   bool has_aggregate_value() const;
   void clear_aggregate_value() ;
   const std::string& aggregate_value() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_aggregate_value(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_aggregate_value(Arg&& arg, Args... args);
   std::string* mutable_aggregate_value();
   PROTOBUF_NODISCARD std::string* release_aggregate_value();
-  void set_allocated_aggregate_value(std::string* aggregate_value);
+  void set_allocated_aggregate_value(std::string* ptr);
+
   private:
   const std::string& _internal_aggregate_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_aggregate_value(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_aggregate_value(
+      const std::string& value);
   std::string* _internal_mutable_aggregate_value();
+
   public:
   // optional uint64 positive_int_value = 4;
   bool has_positive_int_value() const;
@@ -7309,47 +7408,55 @@ class PROTOBUF_EXPORT SourceCodeInfo_Location final :
   void set_leading_detached_comments(int index, const std::string& value);
   void set_leading_detached_comments(int index, std::string&& value);
   void set_leading_detached_comments(int index, const char* value);
+  void set_leading_detached_comments(int index, const char* value, std::size_t size);
   void set_leading_detached_comments(int index, absl::string_view value);
-  void set_leading_detached_comments(int index, const char* value, ::size_t size);
   std::string* add_leading_detached_comments();
   void add_leading_detached_comments(const std::string& value);
   void add_leading_detached_comments(std::string&& value);
   void add_leading_detached_comments(const char* value);
+  void add_leading_detached_comments(const char* value, std::size_t size);
   void add_leading_detached_comments(absl::string_view value);
-  void add_leading_detached_comments(const char* value, ::size_t size);
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& leading_detached_comments() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_leading_detached_comments();
+
   private:
   const std::string& _internal_leading_detached_comments(int index) const;
   std::string* _internal_add_leading_detached_comments();
+
   public:
   // optional string leading_comments = 3;
   bool has_leading_comments() const;
   void clear_leading_comments() ;
   const std::string& leading_comments() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_leading_comments(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_leading_comments(Arg&& arg, Args... args);
   std::string* mutable_leading_comments();
   PROTOBUF_NODISCARD std::string* release_leading_comments();
-  void set_allocated_leading_comments(std::string* leading_comments);
+  void set_allocated_leading_comments(std::string* ptr);
+
   private:
   const std::string& _internal_leading_comments() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_leading_comments(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_leading_comments(
+      const std::string& value);
   std::string* _internal_mutable_leading_comments();
+
   public:
   // optional string trailing_comments = 4;
   bool has_trailing_comments() const;
   void clear_trailing_comments() ;
   const std::string& trailing_comments() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_trailing_comments(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_trailing_comments(Arg&& arg, Args... args);
   std::string* mutable_trailing_comments();
   PROTOBUF_NODISCARD std::string* release_trailing_comments();
-  void set_allocated_trailing_comments(std::string* trailing_comments);
+  void set_allocated_trailing_comments(std::string* ptr);
+
   private:
   const std::string& _internal_trailing_comments() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_trailing_comments(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_trailing_comments(
+      const std::string& value);
   std::string* _internal_mutable_trailing_comments();
+
   public:
   // @@protoc_insertion_point(class_scope:google.protobuf.SourceCodeInfo.Location)
  private:
@@ -7715,15 +7822,18 @@ class PROTOBUF_EXPORT GeneratedCodeInfo_Annotation final :
   bool has_source_file() const;
   void clear_source_file() ;
   const std::string& source_file() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_source_file(ArgT0&& arg0, ArgT... args);
+  template <typename Arg = const std::string, typename... Args>
+  void set_source_file(Arg&& arg, Args... args);
   std::string* mutable_source_file();
   PROTOBUF_NODISCARD std::string* release_source_file();
-  void set_allocated_source_file(std::string* source_file);
+  void set_allocated_source_file(std::string* ptr);
+
   private:
   const std::string& _internal_source_file() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_source_file(const std::string& value);
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_source_file(
+      const std::string& value);
   std::string* _internal_mutable_source_file();
+
   public:
   // optional int32 begin = 3;
   bool has_begin() const;
@@ -8014,11 +8124,11 @@ inline const std::string& FileDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileDescriptorProto.name)
 }
 inline std::string* FileDescriptorProto::mutable_name() {
@@ -8031,11 +8141,13 @@ inline const std::string& FileDescriptorProto::_internal_name() const {
 }
 inline void FileDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileDescriptorProto.name)
@@ -8043,24 +8155,25 @@ inline std::string* FileDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void FileDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileDescriptorProto.name)
 }
 
@@ -8077,11 +8190,11 @@ inline const std::string& FileDescriptorProto::package() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileDescriptorProto.package)
   return _internal_package();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileDescriptorProto::set_package(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.package_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileDescriptorProto::set_package(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.package_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileDescriptorProto.package)
 }
 inline std::string* FileDescriptorProto::mutable_package() {
@@ -8094,11 +8207,13 @@ inline const std::string& FileDescriptorProto::_internal_package() const {
 }
 inline void FileDescriptorProto::_internal_set_package(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
+
+
   _impl_.package_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::_internal_mutable_package() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.package_.Mutable(GetArenaForAllocation());
+  return _impl_.package_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::release_package() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileDescriptorProto.package)
@@ -8106,24 +8221,25 @@ inline std::string* FileDescriptorProto::release_package() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.package_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.package_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.package_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileDescriptorProto::set_allocated_package(std::string* package) {
-  if (package != nullptr) {
+inline void FileDescriptorProto::set_allocated_package(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.package_.SetAllocated(package, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.package_.IsDefault()) {
-    _impl_.package_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.package_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.package_.IsDefault()) {
+          _impl_.package_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileDescriptorProto.package)
 }
 
@@ -8162,21 +8278,20 @@ inline void FileDescriptorProto::set_dependency(int index, std::string&& value) 
   // @@protoc_insertion_point(field_set:google.protobuf.FileDescriptorProto.dependency)
 }
 inline void FileDescriptorProto::set_dependency(int index, const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.dependency_.Mutable(index)->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.dependency_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:google.protobuf.FileDescriptorProto.dependency)
+}
+inline void FileDescriptorProto::set_dependency(int index, const char* value,
+                              std::size_t size) {
+  _impl_.dependency_.Mutable(index)->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.FileDescriptorProto.dependency)
 }
 inline void FileDescriptorProto::set_dependency(int index, absl::string_view value) {
   _impl_.dependency_.Mutable(index)->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_set_string_piece:google.protobuf.FileDescriptorProto.dependency)
 }
-inline void FileDescriptorProto::set_dependency(int index, const char* value, ::size_t size) {
-  _impl_.dependency_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:google.protobuf.FileDescriptorProto.dependency)
-}
-inline std::string* FileDescriptorProto::_internal_add_dependency() {
-  return _impl_.dependency_.Add();
-}
+inline std::string* FileDescriptorProto::_internal_add_dependency() { return _impl_.dependency_.Add(); }
 inline void FileDescriptorProto::add_dependency(const std::string& value) {
   _impl_.dependency_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:google.protobuf.FileDescriptorProto.dependency)
@@ -8186,24 +8301,24 @@ inline void FileDescriptorProto::add_dependency(std::string&& value) {
   // @@protoc_insertion_point(field_add:google.protobuf.FileDescriptorProto.dependency)
 }
 inline void FileDescriptorProto::add_dependency(const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.dependency_.Add()->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.dependency_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:google.protobuf.FileDescriptorProto.dependency)
+}
+inline void FileDescriptorProto::add_dependency(const char* value, std::size_t size) {
+  _impl_.dependency_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:google.protobuf.FileDescriptorProto.dependency)
 }
 inline void FileDescriptorProto::add_dependency(absl::string_view value) {
   _impl_.dependency_.Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:google.protobuf.FileDescriptorProto.dependency)
-}
-inline void FileDescriptorProto::add_dependency(const char* value, ::size_t size) {
-  _impl_.dependency_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:google.protobuf.FileDescriptorProto.dependency)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 FileDescriptorProto::dependency() const {
   // @@protoc_insertion_point(field_list:google.protobuf.FileDescriptorProto.dependency)
   return _impl_.dependency_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-FileDescriptorProto::mutable_dependency() {
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* FileDescriptorProto::mutable_dependency() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.FileDescriptorProto.dependency)
   return &_impl_.dependency_;
 }
@@ -8639,11 +8754,11 @@ inline const std::string& FileDescriptorProto::syntax() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileDescriptorProto.syntax)
   return _internal_syntax();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileDescriptorProto::set_syntax(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.syntax_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileDescriptorProto::set_syntax(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.syntax_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileDescriptorProto.syntax)
 }
 inline std::string* FileDescriptorProto::mutable_syntax() {
@@ -8656,11 +8771,13 @@ inline const std::string& FileDescriptorProto::_internal_syntax() const {
 }
 inline void FileDescriptorProto::_internal_set_syntax(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000004u;
+
+
   _impl_.syntax_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::_internal_mutable_syntax() {
   _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.syntax_.Mutable(GetArenaForAllocation());
+  return _impl_.syntax_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::release_syntax() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileDescriptorProto.syntax)
@@ -8668,24 +8785,25 @@ inline std::string* FileDescriptorProto::release_syntax() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.syntax_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.syntax_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.syntax_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileDescriptorProto::set_allocated_syntax(std::string* syntax) {
-  if (syntax != nullptr) {
+inline void FileDescriptorProto::set_allocated_syntax(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  _impl_.syntax_.SetAllocated(syntax, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.syntax_.IsDefault()) {
-    _impl_.syntax_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.syntax_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.syntax_.IsDefault()) {
+          _impl_.syntax_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileDescriptorProto.syntax)
 }
 
@@ -8702,11 +8820,11 @@ inline const std::string& FileDescriptorProto::edition() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileDescriptorProto.edition)
   return _internal_edition();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileDescriptorProto::set_edition(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000008u;
- _impl_.edition_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileDescriptorProto::set_edition(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.edition_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileDescriptorProto.edition)
 }
 inline std::string* FileDescriptorProto::mutable_edition() {
@@ -8719,11 +8837,13 @@ inline const std::string& FileDescriptorProto::_internal_edition() const {
 }
 inline void FileDescriptorProto::_internal_set_edition(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000008u;
+
+
   _impl_.edition_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::_internal_mutable_edition() {
   _impl_._has_bits_[0] |= 0x00000008u;
-  return _impl_.edition_.Mutable(GetArenaForAllocation());
+  return _impl_.edition_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileDescriptorProto::release_edition() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileDescriptorProto.edition)
@@ -8731,24 +8851,25 @@ inline std::string* FileDescriptorProto::release_edition() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000008u;
-  auto* p = _impl_.edition_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.edition_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.edition_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileDescriptorProto::set_allocated_edition(std::string* edition) {
-  if (edition != nullptr) {
+inline void FileDescriptorProto::set_allocated_edition(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000008u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000008u;
   }
-  _impl_.edition_.SetAllocated(edition, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.edition_.IsDefault()) {
-    _impl_.edition_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.edition_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.edition_.IsDefault()) {
+          _impl_.edition_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileDescriptorProto.edition)
 }
 
@@ -8770,7 +8891,6 @@ inline ::int32_t DescriptorProto_ExtensionRange::start() const {
   return _internal_start();
 }
 inline void DescriptorProto_ExtensionRange::set_start(::int32_t value) {
-  ;
   _internal_set_start(value);
   // @@protoc_insertion_point(field_set:google.protobuf.DescriptorProto.ExtensionRange.start)
 }
@@ -8796,7 +8916,6 @@ inline ::int32_t DescriptorProto_ExtensionRange::end() const {
   return _internal_end();
 }
 inline void DescriptorProto_ExtensionRange::set_end(::int32_t value) {
-  ;
   _internal_set_end(value);
   // @@protoc_insertion_point(field_set:google.protobuf.DescriptorProto.ExtensionRange.end)
 }
@@ -8913,7 +9032,6 @@ inline ::int32_t DescriptorProto_ReservedRange::start() const {
   return _internal_start();
 }
 inline void DescriptorProto_ReservedRange::set_start(::int32_t value) {
-  ;
   _internal_set_start(value);
   // @@protoc_insertion_point(field_set:google.protobuf.DescriptorProto.ReservedRange.start)
 }
@@ -8939,7 +9057,6 @@ inline ::int32_t DescriptorProto_ReservedRange::end() const {
   return _internal_end();
 }
 inline void DescriptorProto_ReservedRange::set_end(::int32_t value) {
-  ;
   _internal_set_end(value);
   // @@protoc_insertion_point(field_set:google.protobuf.DescriptorProto.ReservedRange.end)
 }
@@ -8968,11 +9085,11 @@ inline const std::string& DescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.DescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void DescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void DescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.DescriptorProto.name)
 }
 inline std::string* DescriptorProto::mutable_name() {
@@ -8985,11 +9102,13 @@ inline const std::string& DescriptorProto::_internal_name() const {
 }
 inline void DescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* DescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* DescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.DescriptorProto.name)
@@ -8997,24 +9116,25 @@ inline std::string* DescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void DescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void DescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.DescriptorProto.name)
 }
 
@@ -9420,21 +9540,20 @@ inline void DescriptorProto::set_reserved_name(int index, std::string&& value) {
   // @@protoc_insertion_point(field_set:google.protobuf.DescriptorProto.reserved_name)
 }
 inline void DescriptorProto::set_reserved_name(int index, const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.reserved_name_.Mutable(index)->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.reserved_name_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:google.protobuf.DescriptorProto.reserved_name)
+}
+inline void DescriptorProto::set_reserved_name(int index, const char* value,
+                              std::size_t size) {
+  _impl_.reserved_name_.Mutable(index)->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.DescriptorProto.reserved_name)
 }
 inline void DescriptorProto::set_reserved_name(int index, absl::string_view value) {
   _impl_.reserved_name_.Mutable(index)->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_set_string_piece:google.protobuf.DescriptorProto.reserved_name)
 }
-inline void DescriptorProto::set_reserved_name(int index, const char* value, ::size_t size) {
-  _impl_.reserved_name_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:google.protobuf.DescriptorProto.reserved_name)
-}
-inline std::string* DescriptorProto::_internal_add_reserved_name() {
-  return _impl_.reserved_name_.Add();
-}
+inline std::string* DescriptorProto::_internal_add_reserved_name() { return _impl_.reserved_name_.Add(); }
 inline void DescriptorProto::add_reserved_name(const std::string& value) {
   _impl_.reserved_name_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:google.protobuf.DescriptorProto.reserved_name)
@@ -9444,24 +9563,24 @@ inline void DescriptorProto::add_reserved_name(std::string&& value) {
   // @@protoc_insertion_point(field_add:google.protobuf.DescriptorProto.reserved_name)
 }
 inline void DescriptorProto::add_reserved_name(const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.reserved_name_.Add()->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.reserved_name_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:google.protobuf.DescriptorProto.reserved_name)
+}
+inline void DescriptorProto::add_reserved_name(const char* value, std::size_t size) {
+  _impl_.reserved_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:google.protobuf.DescriptorProto.reserved_name)
 }
 inline void DescriptorProto::add_reserved_name(absl::string_view value) {
   _impl_.reserved_name_.Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:google.protobuf.DescriptorProto.reserved_name)
-}
-inline void DescriptorProto::add_reserved_name(const char* value, ::size_t size) {
-  _impl_.reserved_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:google.protobuf.DescriptorProto.reserved_name)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 DescriptorProto::reserved_name() const {
   // @@protoc_insertion_point(field_list:google.protobuf.DescriptorProto.reserved_name)
   return _impl_.reserved_name_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-DescriptorProto::mutable_reserved_name() {
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* DescriptorProto::mutable_reserved_name() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.DescriptorProto.reserved_name)
   return &_impl_.reserved_name_;
 }
@@ -9527,11 +9646,11 @@ inline const std::string& FieldDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FieldDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FieldDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FieldDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.name)
 }
 inline std::string* FieldDescriptorProto::mutable_name() {
@@ -9544,11 +9663,13 @@ inline const std::string& FieldDescriptorProto::_internal_name() const {
 }
 inline void FieldDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.FieldDescriptorProto.name)
@@ -9556,24 +9677,25 @@ inline std::string* FieldDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FieldDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void FieldDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FieldDescriptorProto.name)
 }
 
@@ -9591,7 +9713,6 @@ inline ::int32_t FieldDescriptorProto::number() const {
   return _internal_number();
 }
 inline void FieldDescriptorProto::set_number(::int32_t value) {
-  ;
   _internal_set_number(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.number)
 }
@@ -9668,11 +9789,11 @@ inline const std::string& FieldDescriptorProto::type_name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FieldDescriptorProto.type_name)
   return _internal_type_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FieldDescriptorProto::set_type_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.type_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FieldDescriptorProto::set_type_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.type_name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.type_name)
 }
 inline std::string* FieldDescriptorProto::mutable_type_name() {
@@ -9685,11 +9806,13 @@ inline const std::string& FieldDescriptorProto::_internal_type_name() const {
 }
 inline void FieldDescriptorProto::_internal_set_type_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000004u;
+
+
   _impl_.type_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::_internal_mutable_type_name() {
   _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.type_name_.Mutable(GetArenaForAllocation());
+  return _impl_.type_name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::release_type_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.FieldDescriptorProto.type_name)
@@ -9697,24 +9820,25 @@ inline std::string* FieldDescriptorProto::release_type_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.type_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.type_name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.type_name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FieldDescriptorProto::set_allocated_type_name(std::string* type_name) {
-  if (type_name != nullptr) {
+inline void FieldDescriptorProto::set_allocated_type_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  _impl_.type_name_.SetAllocated(type_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.type_name_.IsDefault()) {
-    _impl_.type_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.type_name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.type_name_.IsDefault()) {
+          _impl_.type_name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FieldDescriptorProto.type_name)
 }
 
@@ -9731,11 +9855,11 @@ inline const std::string& FieldDescriptorProto::extendee() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FieldDescriptorProto.extendee)
   return _internal_extendee();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FieldDescriptorProto::set_extendee(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.extendee_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FieldDescriptorProto::set_extendee(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.extendee_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.extendee)
 }
 inline std::string* FieldDescriptorProto::mutable_extendee() {
@@ -9748,11 +9872,13 @@ inline const std::string& FieldDescriptorProto::_internal_extendee() const {
 }
 inline void FieldDescriptorProto::_internal_set_extendee(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
+
+
   _impl_.extendee_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::_internal_mutable_extendee() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.extendee_.Mutable(GetArenaForAllocation());
+  return _impl_.extendee_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::release_extendee() {
   // @@protoc_insertion_point(field_release:google.protobuf.FieldDescriptorProto.extendee)
@@ -9760,24 +9886,25 @@ inline std::string* FieldDescriptorProto::release_extendee() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.extendee_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.extendee_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.extendee_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FieldDescriptorProto::set_allocated_extendee(std::string* extendee) {
-  if (extendee != nullptr) {
+inline void FieldDescriptorProto::set_allocated_extendee(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.extendee_.SetAllocated(extendee, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.extendee_.IsDefault()) {
-    _impl_.extendee_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.extendee_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.extendee_.IsDefault()) {
+          _impl_.extendee_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FieldDescriptorProto.extendee)
 }
 
@@ -9794,11 +9921,11 @@ inline const std::string& FieldDescriptorProto::default_value() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FieldDescriptorProto.default_value)
   return _internal_default_value();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FieldDescriptorProto::set_default_value(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000008u;
- _impl_.default_value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FieldDescriptorProto::set_default_value(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.default_value_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.default_value)
 }
 inline std::string* FieldDescriptorProto::mutable_default_value() {
@@ -9811,11 +9938,13 @@ inline const std::string& FieldDescriptorProto::_internal_default_value() const 
 }
 inline void FieldDescriptorProto::_internal_set_default_value(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000008u;
+
+
   _impl_.default_value_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::_internal_mutable_default_value() {
   _impl_._has_bits_[0] |= 0x00000008u;
-  return _impl_.default_value_.Mutable(GetArenaForAllocation());
+  return _impl_.default_value_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::release_default_value() {
   // @@protoc_insertion_point(field_release:google.protobuf.FieldDescriptorProto.default_value)
@@ -9823,24 +9952,25 @@ inline std::string* FieldDescriptorProto::release_default_value() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000008u;
-  auto* p = _impl_.default_value_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.default_value_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.default_value_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FieldDescriptorProto::set_allocated_default_value(std::string* default_value) {
-  if (default_value != nullptr) {
+inline void FieldDescriptorProto::set_allocated_default_value(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000008u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000008u;
   }
-  _impl_.default_value_.SetAllocated(default_value, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.default_value_.IsDefault()) {
-    _impl_.default_value_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.default_value_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.default_value_.IsDefault()) {
+          _impl_.default_value_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FieldDescriptorProto.default_value)
 }
 
@@ -9858,7 +9988,6 @@ inline ::int32_t FieldDescriptorProto::oneof_index() const {
   return _internal_oneof_index();
 }
 inline void FieldDescriptorProto::set_oneof_index(::int32_t value) {
-  ;
   _internal_set_oneof_index(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.oneof_index)
 }
@@ -9883,11 +10012,11 @@ inline const std::string& FieldDescriptorProto::json_name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FieldDescriptorProto.json_name)
   return _internal_json_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FieldDescriptorProto::set_json_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000010u;
- _impl_.json_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FieldDescriptorProto::set_json_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.json_name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.json_name)
 }
 inline std::string* FieldDescriptorProto::mutable_json_name() {
@@ -9900,11 +10029,13 @@ inline const std::string& FieldDescriptorProto::_internal_json_name() const {
 }
 inline void FieldDescriptorProto::_internal_set_json_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000010u;
+
+
   _impl_.json_name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::_internal_mutable_json_name() {
   _impl_._has_bits_[0] |= 0x00000010u;
-  return _impl_.json_name_.Mutable(GetArenaForAllocation());
+  return _impl_.json_name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FieldDescriptorProto::release_json_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.FieldDescriptorProto.json_name)
@@ -9912,24 +10043,25 @@ inline std::string* FieldDescriptorProto::release_json_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000010u;
-  auto* p = _impl_.json_name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.json_name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.json_name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FieldDescriptorProto::set_allocated_json_name(std::string* json_name) {
-  if (json_name != nullptr) {
+inline void FieldDescriptorProto::set_allocated_json_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000010u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000010u;
   }
-  _impl_.json_name_.SetAllocated(json_name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.json_name_.IsDefault()) {
-    _impl_.json_name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.json_name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.json_name_.IsDefault()) {
+          _impl_.json_name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FieldDescriptorProto.json_name)
 }
 
@@ -10034,7 +10166,6 @@ inline bool FieldDescriptorProto::proto3_optional() const {
   return _internal_proto3_optional();
 }
 inline void FieldDescriptorProto::set_proto3_optional(bool value) {
-  ;
   _internal_set_proto3_optional(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldDescriptorProto.proto3_optional)
 }
@@ -10063,11 +10194,11 @@ inline const std::string& OneofDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.OneofDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void OneofDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void OneofDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.OneofDescriptorProto.name)
 }
 inline std::string* OneofDescriptorProto::mutable_name() {
@@ -10080,11 +10211,13 @@ inline const std::string& OneofDescriptorProto::_internal_name() const {
 }
 inline void OneofDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* OneofDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* OneofDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.OneofDescriptorProto.name)
@@ -10092,24 +10225,25 @@ inline std::string* OneofDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void OneofDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void OneofDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.OneofDescriptorProto.name)
 }
 
@@ -10218,7 +10352,6 @@ inline ::int32_t EnumDescriptorProto_EnumReservedRange::start() const {
   return _internal_start();
 }
 inline void EnumDescriptorProto_EnumReservedRange::set_start(::int32_t value) {
-  ;
   _internal_set_start(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumDescriptorProto.EnumReservedRange.start)
 }
@@ -10244,7 +10377,6 @@ inline ::int32_t EnumDescriptorProto_EnumReservedRange::end() const {
   return _internal_end();
 }
 inline void EnumDescriptorProto_EnumReservedRange::set_end(::int32_t value) {
-  ;
   _internal_set_end(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumDescriptorProto.EnumReservedRange.end)
 }
@@ -10273,11 +10405,11 @@ inline const std::string& EnumDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.EnumDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void EnumDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void EnumDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.EnumDescriptorProto.name)
 }
 inline std::string* EnumDescriptorProto::mutable_name() {
@@ -10290,11 +10422,13 @@ inline const std::string& EnumDescriptorProto::_internal_name() const {
 }
 inline void EnumDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* EnumDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* EnumDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.EnumDescriptorProto.name)
@@ -10302,24 +10436,25 @@ inline std::string* EnumDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void EnumDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void EnumDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.EnumDescriptorProto.name)
 }
 
@@ -10525,21 +10660,20 @@ inline void EnumDescriptorProto::set_reserved_name(int index, std::string&& valu
   // @@protoc_insertion_point(field_set:google.protobuf.EnumDescriptorProto.reserved_name)
 }
 inline void EnumDescriptorProto::set_reserved_name(int index, const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.reserved_name_.Mutable(index)->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.reserved_name_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:google.protobuf.EnumDescriptorProto.reserved_name)
+}
+inline void EnumDescriptorProto::set_reserved_name(int index, const char* value,
+                              std::size_t size) {
+  _impl_.reserved_name_.Mutable(index)->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.EnumDescriptorProto.reserved_name)
 }
 inline void EnumDescriptorProto::set_reserved_name(int index, absl::string_view value) {
   _impl_.reserved_name_.Mutable(index)->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_set_string_piece:google.protobuf.EnumDescriptorProto.reserved_name)
 }
-inline void EnumDescriptorProto::set_reserved_name(int index, const char* value, ::size_t size) {
-  _impl_.reserved_name_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:google.protobuf.EnumDescriptorProto.reserved_name)
-}
-inline std::string* EnumDescriptorProto::_internal_add_reserved_name() {
-  return _impl_.reserved_name_.Add();
-}
+inline std::string* EnumDescriptorProto::_internal_add_reserved_name() { return _impl_.reserved_name_.Add(); }
 inline void EnumDescriptorProto::add_reserved_name(const std::string& value) {
   _impl_.reserved_name_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:google.protobuf.EnumDescriptorProto.reserved_name)
@@ -10549,24 +10683,24 @@ inline void EnumDescriptorProto::add_reserved_name(std::string&& value) {
   // @@protoc_insertion_point(field_add:google.protobuf.EnumDescriptorProto.reserved_name)
 }
 inline void EnumDescriptorProto::add_reserved_name(const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.reserved_name_.Add()->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.reserved_name_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:google.protobuf.EnumDescriptorProto.reserved_name)
+}
+inline void EnumDescriptorProto::add_reserved_name(const char* value, std::size_t size) {
+  _impl_.reserved_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:google.protobuf.EnumDescriptorProto.reserved_name)
 }
 inline void EnumDescriptorProto::add_reserved_name(absl::string_view value) {
   _impl_.reserved_name_.Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:google.protobuf.EnumDescriptorProto.reserved_name)
-}
-inline void EnumDescriptorProto::add_reserved_name(const char* value, ::size_t size) {
-  _impl_.reserved_name_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:google.protobuf.EnumDescriptorProto.reserved_name)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 EnumDescriptorProto::reserved_name() const {
   // @@protoc_insertion_point(field_list:google.protobuf.EnumDescriptorProto.reserved_name)
   return _impl_.reserved_name_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-EnumDescriptorProto::mutable_reserved_name() {
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* EnumDescriptorProto::mutable_reserved_name() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.EnumDescriptorProto.reserved_name)
   return &_impl_.reserved_name_;
 }
@@ -10588,11 +10722,11 @@ inline const std::string& EnumValueDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.EnumValueDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void EnumValueDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void EnumValueDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.EnumValueDescriptorProto.name)
 }
 inline std::string* EnumValueDescriptorProto::mutable_name() {
@@ -10605,11 +10739,13 @@ inline const std::string& EnumValueDescriptorProto::_internal_name() const {
 }
 inline void EnumValueDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* EnumValueDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* EnumValueDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.EnumValueDescriptorProto.name)
@@ -10617,24 +10753,25 @@ inline std::string* EnumValueDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void EnumValueDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void EnumValueDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.EnumValueDescriptorProto.name)
 }
 
@@ -10652,7 +10789,6 @@ inline ::int32_t EnumValueDescriptorProto::number() const {
   return _internal_number();
 }
 inline void EnumValueDescriptorProto::set_number(::int32_t value) {
-  ;
   _internal_set_number(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumValueDescriptorProto.number)
 }
@@ -10768,11 +10904,11 @@ inline const std::string& ServiceDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.ServiceDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void ServiceDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void ServiceDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.ServiceDescriptorProto.name)
 }
 inline std::string* ServiceDescriptorProto::mutable_name() {
@@ -10785,11 +10921,13 @@ inline const std::string& ServiceDescriptorProto::_internal_name() const {
 }
 inline void ServiceDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* ServiceDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* ServiceDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.ServiceDescriptorProto.name)
@@ -10797,24 +10935,25 @@ inline std::string* ServiceDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void ServiceDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void ServiceDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.ServiceDescriptorProto.name)
 }
 
@@ -10962,11 +11101,11 @@ inline const std::string& MethodDescriptorProto::name() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MethodDescriptorProto.name)
   return _internal_name();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void MethodDescriptorProto::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void MethodDescriptorProto::set_name(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.MethodDescriptorProto.name)
 }
 inline std::string* MethodDescriptorProto::mutable_name() {
@@ -10979,11 +11118,13 @@ inline const std::string& MethodDescriptorProto::_internal_name() const {
 }
 inline void MethodDescriptorProto::_internal_set_name(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_.Set(value, GetArenaForAllocation());
 }
 inline std::string* MethodDescriptorProto::_internal_mutable_name() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
+  return _impl_.name_.Mutable( GetArenaForAllocation());
 }
 inline std::string* MethodDescriptorProto::release_name() {
   // @@protoc_insertion_point(field_release:google.protobuf.MethodDescriptorProto.name)
@@ -10991,24 +11132,25 @@ inline std::string* MethodDescriptorProto::release_name() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void MethodDescriptorProto::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
+inline void MethodDescriptorProto::set_allocated_name(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_.IsDefault()) {
+          _impl_.name_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.MethodDescriptorProto.name)
 }
 
@@ -11025,11 +11167,11 @@ inline const std::string& MethodDescriptorProto::input_type() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MethodDescriptorProto.input_type)
   return _internal_input_type();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void MethodDescriptorProto::set_input_type(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.input_type_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void MethodDescriptorProto::set_input_type(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.input_type_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.MethodDescriptorProto.input_type)
 }
 inline std::string* MethodDescriptorProto::mutable_input_type() {
@@ -11042,11 +11184,13 @@ inline const std::string& MethodDescriptorProto::_internal_input_type() const {
 }
 inline void MethodDescriptorProto::_internal_set_input_type(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
+
+
   _impl_.input_type_.Set(value, GetArenaForAllocation());
 }
 inline std::string* MethodDescriptorProto::_internal_mutable_input_type() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.input_type_.Mutable(GetArenaForAllocation());
+  return _impl_.input_type_.Mutable( GetArenaForAllocation());
 }
 inline std::string* MethodDescriptorProto::release_input_type() {
   // @@protoc_insertion_point(field_release:google.protobuf.MethodDescriptorProto.input_type)
@@ -11054,24 +11198,25 @@ inline std::string* MethodDescriptorProto::release_input_type() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.input_type_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.input_type_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.input_type_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void MethodDescriptorProto::set_allocated_input_type(std::string* input_type) {
-  if (input_type != nullptr) {
+inline void MethodDescriptorProto::set_allocated_input_type(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.input_type_.SetAllocated(input_type, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.input_type_.IsDefault()) {
-    _impl_.input_type_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.input_type_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.input_type_.IsDefault()) {
+          _impl_.input_type_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.MethodDescriptorProto.input_type)
 }
 
@@ -11088,11 +11233,11 @@ inline const std::string& MethodDescriptorProto::output_type() const {
   // @@protoc_insertion_point(field_get:google.protobuf.MethodDescriptorProto.output_type)
   return _internal_output_type();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void MethodDescriptorProto::set_output_type(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.output_type_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void MethodDescriptorProto::set_output_type(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.output_type_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.MethodDescriptorProto.output_type)
 }
 inline std::string* MethodDescriptorProto::mutable_output_type() {
@@ -11105,11 +11250,13 @@ inline const std::string& MethodDescriptorProto::_internal_output_type() const {
 }
 inline void MethodDescriptorProto::_internal_set_output_type(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000004u;
+
+
   _impl_.output_type_.Set(value, GetArenaForAllocation());
 }
 inline std::string* MethodDescriptorProto::_internal_mutable_output_type() {
   _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.output_type_.Mutable(GetArenaForAllocation());
+  return _impl_.output_type_.Mutable( GetArenaForAllocation());
 }
 inline std::string* MethodDescriptorProto::release_output_type() {
   // @@protoc_insertion_point(field_release:google.protobuf.MethodDescriptorProto.output_type)
@@ -11117,24 +11264,25 @@ inline std::string* MethodDescriptorProto::release_output_type() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.output_type_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.output_type_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.output_type_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void MethodDescriptorProto::set_allocated_output_type(std::string* output_type) {
-  if (output_type != nullptr) {
+inline void MethodDescriptorProto::set_allocated_output_type(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  _impl_.output_type_.SetAllocated(output_type, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.output_type_.IsDefault()) {
-    _impl_.output_type_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.output_type_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.output_type_.IsDefault()) {
+          _impl_.output_type_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.MethodDescriptorProto.output_type)
 }
 
@@ -11239,7 +11387,6 @@ inline bool MethodDescriptorProto::client_streaming() const {
   return _internal_client_streaming();
 }
 inline void MethodDescriptorProto::set_client_streaming(bool value) {
-  ;
   _internal_set_client_streaming(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MethodDescriptorProto.client_streaming)
 }
@@ -11265,7 +11412,6 @@ inline bool MethodDescriptorProto::server_streaming() const {
   return _internal_server_streaming();
 }
 inline void MethodDescriptorProto::set_server_streaming(bool value) {
-  ;
   _internal_set_server_streaming(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MethodDescriptorProto.server_streaming)
 }
@@ -11294,11 +11440,11 @@ inline const std::string& FileOptions::java_package() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.java_package)
   return _internal_java_package();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_java_package(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.java_package_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_java_package(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.java_package_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.java_package)
 }
 inline std::string* FileOptions::mutable_java_package() {
@@ -11311,11 +11457,13 @@ inline const std::string& FileOptions::_internal_java_package() const {
 }
 inline void FileOptions::_internal_set_java_package(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.java_package_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_java_package() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.java_package_.Mutable(GetArenaForAllocation());
+  return _impl_.java_package_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_java_package() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.java_package)
@@ -11323,24 +11471,25 @@ inline std::string* FileOptions::release_java_package() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.java_package_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.java_package_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.java_package_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_java_package(std::string* java_package) {
-  if (java_package != nullptr) {
+inline void FileOptions::set_allocated_java_package(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.java_package_.SetAllocated(java_package, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.java_package_.IsDefault()) {
-    _impl_.java_package_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.java_package_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.java_package_.IsDefault()) {
+          _impl_.java_package_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.java_package)
 }
 
@@ -11357,11 +11506,11 @@ inline const std::string& FileOptions::java_outer_classname() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.java_outer_classname)
   return _internal_java_outer_classname();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_java_outer_classname(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.java_outer_classname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_java_outer_classname(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.java_outer_classname_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.java_outer_classname)
 }
 inline std::string* FileOptions::mutable_java_outer_classname() {
@@ -11374,11 +11523,13 @@ inline const std::string& FileOptions::_internal_java_outer_classname() const {
 }
 inline void FileOptions::_internal_set_java_outer_classname(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
+
+
   _impl_.java_outer_classname_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_java_outer_classname() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.java_outer_classname_.Mutable(GetArenaForAllocation());
+  return _impl_.java_outer_classname_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_java_outer_classname() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.java_outer_classname)
@@ -11386,24 +11537,25 @@ inline std::string* FileOptions::release_java_outer_classname() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.java_outer_classname_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.java_outer_classname_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.java_outer_classname_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_java_outer_classname(std::string* java_outer_classname) {
-  if (java_outer_classname != nullptr) {
+inline void FileOptions::set_allocated_java_outer_classname(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.java_outer_classname_.SetAllocated(java_outer_classname, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.java_outer_classname_.IsDefault()) {
-    _impl_.java_outer_classname_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.java_outer_classname_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.java_outer_classname_.IsDefault()) {
+          _impl_.java_outer_classname_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.java_outer_classname)
 }
 
@@ -11421,7 +11573,6 @@ inline bool FileOptions::java_multiple_files() const {
   return _internal_java_multiple_files();
 }
 inline void FileOptions::set_java_multiple_files(bool value) {
-  ;
   _internal_set_java_multiple_files(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.java_multiple_files)
 }
@@ -11447,7 +11598,6 @@ inline bool FileOptions::java_generate_equals_and_hash() const {
   return _internal_java_generate_equals_and_hash();
 }
 inline void FileOptions::set_java_generate_equals_and_hash(bool value) {
-  ;
   _internal_set_java_generate_equals_and_hash(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.java_generate_equals_and_hash)
 }
@@ -11473,7 +11623,6 @@ inline bool FileOptions::java_string_check_utf8() const {
   return _internal_java_string_check_utf8();
 }
 inline void FileOptions::set_java_string_check_utf8(bool value) {
-  ;
   _internal_set_java_string_check_utf8(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.java_string_check_utf8)
 }
@@ -11524,11 +11673,11 @@ inline const std::string& FileOptions::go_package() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.go_package)
   return _internal_go_package();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_go_package(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.go_package_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_go_package(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.go_package_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.go_package)
 }
 inline std::string* FileOptions::mutable_go_package() {
@@ -11541,11 +11690,13 @@ inline const std::string& FileOptions::_internal_go_package() const {
 }
 inline void FileOptions::_internal_set_go_package(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000004u;
+
+
   _impl_.go_package_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_go_package() {
   _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.go_package_.Mutable(GetArenaForAllocation());
+  return _impl_.go_package_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_go_package() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.go_package)
@@ -11553,24 +11704,25 @@ inline std::string* FileOptions::release_go_package() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.go_package_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.go_package_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.go_package_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_go_package(std::string* go_package) {
-  if (go_package != nullptr) {
+inline void FileOptions::set_allocated_go_package(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  _impl_.go_package_.SetAllocated(go_package, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.go_package_.IsDefault()) {
-    _impl_.go_package_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.go_package_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.go_package_.IsDefault()) {
+          _impl_.go_package_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.go_package)
 }
 
@@ -11588,7 +11740,6 @@ inline bool FileOptions::cc_generic_services() const {
   return _internal_cc_generic_services();
 }
 inline void FileOptions::set_cc_generic_services(bool value) {
-  ;
   _internal_set_cc_generic_services(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.cc_generic_services)
 }
@@ -11614,7 +11765,6 @@ inline bool FileOptions::java_generic_services() const {
   return _internal_java_generic_services();
 }
 inline void FileOptions::set_java_generic_services(bool value) {
-  ;
   _internal_set_java_generic_services(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.java_generic_services)
 }
@@ -11640,7 +11790,6 @@ inline bool FileOptions::py_generic_services() const {
   return _internal_py_generic_services();
 }
 inline void FileOptions::set_py_generic_services(bool value) {
-  ;
   _internal_set_py_generic_services(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.py_generic_services)
 }
@@ -11666,7 +11815,6 @@ inline bool FileOptions::php_generic_services() const {
   return _internal_php_generic_services();
 }
 inline void FileOptions::set_php_generic_services(bool value) {
-  ;
   _internal_set_php_generic_services(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.php_generic_services)
 }
@@ -11692,7 +11840,6 @@ inline bool FileOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void FileOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.deprecated)
 }
@@ -11718,7 +11865,6 @@ inline bool FileOptions::cc_enable_arenas() const {
   return _internal_cc_enable_arenas();
 }
 inline void FileOptions::set_cc_enable_arenas(bool value) {
-  ;
   _internal_set_cc_enable_arenas(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.cc_enable_arenas)
 }
@@ -11743,11 +11889,11 @@ inline const std::string& FileOptions::objc_class_prefix() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.objc_class_prefix)
   return _internal_objc_class_prefix();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_objc_class_prefix(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000008u;
- _impl_.objc_class_prefix_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_objc_class_prefix(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.objc_class_prefix_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.objc_class_prefix)
 }
 inline std::string* FileOptions::mutable_objc_class_prefix() {
@@ -11760,11 +11906,13 @@ inline const std::string& FileOptions::_internal_objc_class_prefix() const {
 }
 inline void FileOptions::_internal_set_objc_class_prefix(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000008u;
+
+
   _impl_.objc_class_prefix_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_objc_class_prefix() {
   _impl_._has_bits_[0] |= 0x00000008u;
-  return _impl_.objc_class_prefix_.Mutable(GetArenaForAllocation());
+  return _impl_.objc_class_prefix_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_objc_class_prefix() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.objc_class_prefix)
@@ -11772,24 +11920,25 @@ inline std::string* FileOptions::release_objc_class_prefix() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000008u;
-  auto* p = _impl_.objc_class_prefix_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.objc_class_prefix_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.objc_class_prefix_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_objc_class_prefix(std::string* objc_class_prefix) {
-  if (objc_class_prefix != nullptr) {
+inline void FileOptions::set_allocated_objc_class_prefix(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000008u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000008u;
   }
-  _impl_.objc_class_prefix_.SetAllocated(objc_class_prefix, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.objc_class_prefix_.IsDefault()) {
-    _impl_.objc_class_prefix_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.objc_class_prefix_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.objc_class_prefix_.IsDefault()) {
+          _impl_.objc_class_prefix_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.objc_class_prefix)
 }
 
@@ -11806,11 +11955,11 @@ inline const std::string& FileOptions::csharp_namespace() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.csharp_namespace)
   return _internal_csharp_namespace();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_csharp_namespace(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000010u;
- _impl_.csharp_namespace_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_csharp_namespace(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.csharp_namespace_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.csharp_namespace)
 }
 inline std::string* FileOptions::mutable_csharp_namespace() {
@@ -11823,11 +11972,13 @@ inline const std::string& FileOptions::_internal_csharp_namespace() const {
 }
 inline void FileOptions::_internal_set_csharp_namespace(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000010u;
+
+
   _impl_.csharp_namespace_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_csharp_namespace() {
   _impl_._has_bits_[0] |= 0x00000010u;
-  return _impl_.csharp_namespace_.Mutable(GetArenaForAllocation());
+  return _impl_.csharp_namespace_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_csharp_namespace() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.csharp_namespace)
@@ -11835,24 +11986,25 @@ inline std::string* FileOptions::release_csharp_namespace() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000010u;
-  auto* p = _impl_.csharp_namespace_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.csharp_namespace_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.csharp_namespace_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_csharp_namespace(std::string* csharp_namespace) {
-  if (csharp_namespace != nullptr) {
+inline void FileOptions::set_allocated_csharp_namespace(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000010u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000010u;
   }
-  _impl_.csharp_namespace_.SetAllocated(csharp_namespace, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.csharp_namespace_.IsDefault()) {
-    _impl_.csharp_namespace_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.csharp_namespace_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.csharp_namespace_.IsDefault()) {
+          _impl_.csharp_namespace_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.csharp_namespace)
 }
 
@@ -11869,11 +12021,11 @@ inline const std::string& FileOptions::swift_prefix() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.swift_prefix)
   return _internal_swift_prefix();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_swift_prefix(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000020u;
- _impl_.swift_prefix_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_swift_prefix(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_.swift_prefix_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.swift_prefix)
 }
 inline std::string* FileOptions::mutable_swift_prefix() {
@@ -11886,11 +12038,13 @@ inline const std::string& FileOptions::_internal_swift_prefix() const {
 }
 inline void FileOptions::_internal_set_swift_prefix(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000020u;
+
+
   _impl_.swift_prefix_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_swift_prefix() {
   _impl_._has_bits_[0] |= 0x00000020u;
-  return _impl_.swift_prefix_.Mutable(GetArenaForAllocation());
+  return _impl_.swift_prefix_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_swift_prefix() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.swift_prefix)
@@ -11898,24 +12052,25 @@ inline std::string* FileOptions::release_swift_prefix() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000020u;
-  auto* p = _impl_.swift_prefix_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.swift_prefix_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.swift_prefix_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_swift_prefix(std::string* swift_prefix) {
-  if (swift_prefix != nullptr) {
+inline void FileOptions::set_allocated_swift_prefix(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000020u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000020u;
   }
-  _impl_.swift_prefix_.SetAllocated(swift_prefix, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.swift_prefix_.IsDefault()) {
-    _impl_.swift_prefix_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.swift_prefix_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.swift_prefix_.IsDefault()) {
+          _impl_.swift_prefix_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.swift_prefix)
 }
 
@@ -11932,11 +12087,11 @@ inline const std::string& FileOptions::php_class_prefix() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.php_class_prefix)
   return _internal_php_class_prefix();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_php_class_prefix(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000040u;
- _impl_.php_class_prefix_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_php_class_prefix(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.php_class_prefix_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.php_class_prefix)
 }
 inline std::string* FileOptions::mutable_php_class_prefix() {
@@ -11949,11 +12104,13 @@ inline const std::string& FileOptions::_internal_php_class_prefix() const {
 }
 inline void FileOptions::_internal_set_php_class_prefix(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000040u;
+
+
   _impl_.php_class_prefix_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_php_class_prefix() {
   _impl_._has_bits_[0] |= 0x00000040u;
-  return _impl_.php_class_prefix_.Mutable(GetArenaForAllocation());
+  return _impl_.php_class_prefix_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_php_class_prefix() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.php_class_prefix)
@@ -11961,24 +12118,25 @@ inline std::string* FileOptions::release_php_class_prefix() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000040u;
-  auto* p = _impl_.php_class_prefix_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.php_class_prefix_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.php_class_prefix_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_php_class_prefix(std::string* php_class_prefix) {
-  if (php_class_prefix != nullptr) {
+inline void FileOptions::set_allocated_php_class_prefix(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000040u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000040u;
   }
-  _impl_.php_class_prefix_.SetAllocated(php_class_prefix, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.php_class_prefix_.IsDefault()) {
-    _impl_.php_class_prefix_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.php_class_prefix_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.php_class_prefix_.IsDefault()) {
+          _impl_.php_class_prefix_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.php_class_prefix)
 }
 
@@ -11995,11 +12153,11 @@ inline const std::string& FileOptions::php_namespace() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.php_namespace)
   return _internal_php_namespace();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_php_namespace(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000080u;
- _impl_.php_namespace_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_php_namespace(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.php_namespace_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.php_namespace)
 }
 inline std::string* FileOptions::mutable_php_namespace() {
@@ -12012,11 +12170,13 @@ inline const std::string& FileOptions::_internal_php_namespace() const {
 }
 inline void FileOptions::_internal_set_php_namespace(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000080u;
+
+
   _impl_.php_namespace_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_php_namespace() {
   _impl_._has_bits_[0] |= 0x00000080u;
-  return _impl_.php_namespace_.Mutable(GetArenaForAllocation());
+  return _impl_.php_namespace_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_php_namespace() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.php_namespace)
@@ -12024,24 +12184,25 @@ inline std::string* FileOptions::release_php_namespace() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000080u;
-  auto* p = _impl_.php_namespace_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.php_namespace_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.php_namespace_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_php_namespace(std::string* php_namespace) {
-  if (php_namespace != nullptr) {
+inline void FileOptions::set_allocated_php_namespace(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000080u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000080u;
   }
-  _impl_.php_namespace_.SetAllocated(php_namespace, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.php_namespace_.IsDefault()) {
-    _impl_.php_namespace_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.php_namespace_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.php_namespace_.IsDefault()) {
+          _impl_.php_namespace_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.php_namespace)
 }
 
@@ -12058,11 +12219,11 @@ inline const std::string& FileOptions::php_metadata_namespace() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.php_metadata_namespace)
   return _internal_php_metadata_namespace();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_php_metadata_namespace(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000100u;
- _impl_.php_metadata_namespace_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_php_metadata_namespace(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000100u;
+  _impl_.php_metadata_namespace_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.php_metadata_namespace)
 }
 inline std::string* FileOptions::mutable_php_metadata_namespace() {
@@ -12075,11 +12236,13 @@ inline const std::string& FileOptions::_internal_php_metadata_namespace() const 
 }
 inline void FileOptions::_internal_set_php_metadata_namespace(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000100u;
+
+
   _impl_.php_metadata_namespace_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_php_metadata_namespace() {
   _impl_._has_bits_[0] |= 0x00000100u;
-  return _impl_.php_metadata_namespace_.Mutable(GetArenaForAllocation());
+  return _impl_.php_metadata_namespace_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_php_metadata_namespace() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.php_metadata_namespace)
@@ -12087,24 +12250,25 @@ inline std::string* FileOptions::release_php_metadata_namespace() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000100u;
-  auto* p = _impl_.php_metadata_namespace_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.php_metadata_namespace_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.php_metadata_namespace_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_php_metadata_namespace(std::string* php_metadata_namespace) {
-  if (php_metadata_namespace != nullptr) {
+inline void FileOptions::set_allocated_php_metadata_namespace(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000100u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000100u;
   }
-  _impl_.php_metadata_namespace_.SetAllocated(php_metadata_namespace, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.php_metadata_namespace_.IsDefault()) {
-    _impl_.php_metadata_namespace_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.php_metadata_namespace_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.php_metadata_namespace_.IsDefault()) {
+          _impl_.php_metadata_namespace_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.php_metadata_namespace)
 }
 
@@ -12121,11 +12285,11 @@ inline const std::string& FileOptions::ruby_package() const {
   // @@protoc_insertion_point(field_get:google.protobuf.FileOptions.ruby_package)
   return _internal_ruby_package();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void FileOptions::set_ruby_package(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000200u;
- _impl_.ruby_package_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void FileOptions::set_ruby_package(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.ruby_package_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.FileOptions.ruby_package)
 }
 inline std::string* FileOptions::mutable_ruby_package() {
@@ -12138,11 +12302,13 @@ inline const std::string& FileOptions::_internal_ruby_package() const {
 }
 inline void FileOptions::_internal_set_ruby_package(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000200u;
+
+
   _impl_.ruby_package_.Set(value, GetArenaForAllocation());
 }
 inline std::string* FileOptions::_internal_mutable_ruby_package() {
   _impl_._has_bits_[0] |= 0x00000200u;
-  return _impl_.ruby_package_.Mutable(GetArenaForAllocation());
+  return _impl_.ruby_package_.Mutable( GetArenaForAllocation());
 }
 inline std::string* FileOptions::release_ruby_package() {
   // @@protoc_insertion_point(field_release:google.protobuf.FileOptions.ruby_package)
@@ -12150,24 +12316,25 @@ inline std::string* FileOptions::release_ruby_package() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000200u;
-  auto* p = _impl_.ruby_package_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.ruby_package_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.ruby_package_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void FileOptions::set_allocated_ruby_package(std::string* ruby_package) {
-  if (ruby_package != nullptr) {
+inline void FileOptions::set_allocated_ruby_package(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000200u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000200u;
   }
-  _impl_.ruby_package_.SetAllocated(ruby_package, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.ruby_package_.IsDefault()) {
-    _impl_.ruby_package_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.ruby_package_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.ruby_package_.IsDefault()) {
+          _impl_.ruby_package_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.FileOptions.ruby_package)
 }
 
@@ -12229,7 +12396,6 @@ inline bool MessageOptions::message_set_wire_format() const {
   return _internal_message_set_wire_format();
 }
 inline void MessageOptions::set_message_set_wire_format(bool value) {
-  ;
   _internal_set_message_set_wire_format(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.message_set_wire_format)
 }
@@ -12255,7 +12421,6 @@ inline bool MessageOptions::no_standard_descriptor_accessor() const {
   return _internal_no_standard_descriptor_accessor();
 }
 inline void MessageOptions::set_no_standard_descriptor_accessor(bool value) {
-  ;
   _internal_set_no_standard_descriptor_accessor(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.no_standard_descriptor_accessor)
 }
@@ -12281,7 +12446,6 @@ inline bool MessageOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void MessageOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.deprecated)
 }
@@ -12307,7 +12471,6 @@ inline bool MessageOptions::map_entry() const {
   return _internal_map_entry();
 }
 inline void MessageOptions::set_map_entry(bool value) {
-  ;
   _internal_set_map_entry(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.map_entry)
 }
@@ -12333,7 +12496,6 @@ inline bool MessageOptions::deprecated_legacy_json_field_conflicts() const {
   return _internal_deprecated_legacy_json_field_conflicts();
 }
 inline void MessageOptions::set_deprecated_legacy_json_field_conflicts(bool value) {
-  ;
   _internal_set_deprecated_legacy_json_field_conflicts(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MessageOptions.deprecated_legacy_json_field_conflicts)
 }
@@ -12429,7 +12591,6 @@ inline bool FieldOptions::packed() const {
   return _internal_packed();
 }
 inline void FieldOptions::set_packed(bool value) {
-  ;
   _internal_set_packed(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldOptions.packed)
 }
@@ -12481,7 +12642,6 @@ inline bool FieldOptions::lazy() const {
   return _internal_lazy();
 }
 inline void FieldOptions::set_lazy(bool value) {
-  ;
   _internal_set_lazy(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldOptions.lazy)
 }
@@ -12507,7 +12667,6 @@ inline bool FieldOptions::unverified_lazy() const {
   return _internal_unverified_lazy();
 }
 inline void FieldOptions::set_unverified_lazy(bool value) {
-  ;
   _internal_set_unverified_lazy(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldOptions.unverified_lazy)
 }
@@ -12533,7 +12692,6 @@ inline bool FieldOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void FieldOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldOptions.deprecated)
 }
@@ -12559,7 +12717,6 @@ inline bool FieldOptions::weak() const {
   return _internal_weak();
 }
 inline void FieldOptions::set_weak(bool value) {
-  ;
   _internal_set_weak(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldOptions.weak)
 }
@@ -12585,7 +12742,6 @@ inline bool FieldOptions::debug_redact() const {
   return _internal_debug_redact();
 }
 inline void FieldOptions::set_debug_redact(bool value) {
-  ;
   _internal_set_debug_redact(value);
   // @@protoc_insertion_point(field_set:google.protobuf.FieldOptions.debug_redact)
 }
@@ -12699,7 +12855,6 @@ inline bool EnumOptions::allow_alias() const {
   return _internal_allow_alias();
 }
 inline void EnumOptions::set_allow_alias(bool value) {
-  ;
   _internal_set_allow_alias(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumOptions.allow_alias)
 }
@@ -12725,7 +12880,6 @@ inline bool EnumOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void EnumOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumOptions.deprecated)
 }
@@ -12751,7 +12905,6 @@ inline bool EnumOptions::deprecated_legacy_json_field_conflicts() const {
   return _internal_deprecated_legacy_json_field_conflicts();
 }
 inline void EnumOptions::set_deprecated_legacy_json_field_conflicts(bool value) {
-  ;
   _internal_set_deprecated_legacy_json_field_conflicts(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumOptions.deprecated_legacy_json_field_conflicts)
 }
@@ -12821,7 +12974,6 @@ inline bool EnumValueOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void EnumValueOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.EnumValueOptions.deprecated)
 }
@@ -12891,7 +13043,6 @@ inline bool ServiceOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void ServiceOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.ServiceOptions.deprecated)
 }
@@ -12961,7 +13112,6 @@ inline bool MethodOptions::deprecated() const {
   return _internal_deprecated();
 }
 inline void MethodOptions::set_deprecated(bool value) {
-  ;
   _internal_set_deprecated(value);
   // @@protoc_insertion_point(field_set:google.protobuf.MethodOptions.deprecated)
 }
@@ -13056,11 +13206,11 @@ inline const std::string& UninterpretedOption_NamePart::name_part() const {
   // @@protoc_insertion_point(field_get:google.protobuf.UninterpretedOption.NamePart.name_part)
   return _internal_name_part();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void UninterpretedOption_NamePart::set_name_part(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_part_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void UninterpretedOption_NamePart::set_name_part(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.name_part_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.NamePart.name_part)
 }
 inline std::string* UninterpretedOption_NamePart::mutable_name_part() {
@@ -13073,11 +13223,13 @@ inline const std::string& UninterpretedOption_NamePart::_internal_name_part() co
 }
 inline void UninterpretedOption_NamePart::_internal_set_name_part(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.name_part_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption_NamePart::_internal_mutable_name_part() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_part_.Mutable(GetArenaForAllocation());
+  return _impl_.name_part_.Mutable( GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption_NamePart::release_name_part() {
   // @@protoc_insertion_point(field_release:google.protobuf.UninterpretedOption.NamePart.name_part)
@@ -13085,24 +13237,25 @@ inline std::string* UninterpretedOption_NamePart::release_name_part() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_part_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.name_part_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_part_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void UninterpretedOption_NamePart::set_allocated_name_part(std::string* name_part) {
-  if (name_part != nullptr) {
+inline void UninterpretedOption_NamePart::set_allocated_name_part(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.name_part_.SetAllocated(name_part, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_part_.IsDefault()) {
-    _impl_.name_part_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_part_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.name_part_.IsDefault()) {
+          _impl_.name_part_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.UninterpretedOption.NamePart.name_part)
 }
 
@@ -13120,7 +13273,6 @@ inline bool UninterpretedOption_NamePart::is_extension() const {
   return _internal_is_extension();
 }
 inline void UninterpretedOption_NamePart::set_is_extension(bool value) {
-  ;
   _internal_set_is_extension(value);
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.NamePart.is_extension)
 }
@@ -13189,11 +13341,11 @@ inline const std::string& UninterpretedOption::identifier_value() const {
   // @@protoc_insertion_point(field_get:google.protobuf.UninterpretedOption.identifier_value)
   return _internal_identifier_value();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void UninterpretedOption::set_identifier_value(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.identifier_value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void UninterpretedOption::set_identifier_value(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.identifier_value_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.identifier_value)
 }
 inline std::string* UninterpretedOption::mutable_identifier_value() {
@@ -13206,11 +13358,13 @@ inline const std::string& UninterpretedOption::_internal_identifier_value() cons
 }
 inline void UninterpretedOption::_internal_set_identifier_value(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.identifier_value_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption::_internal_mutable_identifier_value() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.identifier_value_.Mutable(GetArenaForAllocation());
+  return _impl_.identifier_value_.Mutable( GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption::release_identifier_value() {
   // @@protoc_insertion_point(field_release:google.protobuf.UninterpretedOption.identifier_value)
@@ -13218,24 +13372,25 @@ inline std::string* UninterpretedOption::release_identifier_value() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.identifier_value_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.identifier_value_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.identifier_value_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void UninterpretedOption::set_allocated_identifier_value(std::string* identifier_value) {
-  if (identifier_value != nullptr) {
+inline void UninterpretedOption::set_allocated_identifier_value(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.identifier_value_.SetAllocated(identifier_value, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.identifier_value_.IsDefault()) {
-    _impl_.identifier_value_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.identifier_value_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.identifier_value_.IsDefault()) {
+          _impl_.identifier_value_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.UninterpretedOption.identifier_value)
 }
 
@@ -13253,7 +13408,6 @@ inline ::uint64_t UninterpretedOption::positive_int_value() const {
   return _internal_positive_int_value();
 }
 inline void UninterpretedOption::set_positive_int_value(::uint64_t value) {
-  ;
   _internal_set_positive_int_value(value);
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.positive_int_value)
 }
@@ -13279,7 +13433,6 @@ inline ::int64_t UninterpretedOption::negative_int_value() const {
   return _internal_negative_int_value();
 }
 inline void UninterpretedOption::set_negative_int_value(::int64_t value) {
-  ;
   _internal_set_negative_int_value(value);
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.negative_int_value)
 }
@@ -13305,7 +13458,6 @@ inline double UninterpretedOption::double_value() const {
   return _internal_double_value();
 }
 inline void UninterpretedOption::set_double_value(double value) {
-  ;
   _internal_set_double_value(value);
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.double_value)
 }
@@ -13330,11 +13482,11 @@ inline const std::string& UninterpretedOption::string_value() const {
   // @@protoc_insertion_point(field_get:google.protobuf.UninterpretedOption.string_value)
   return _internal_string_value();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void UninterpretedOption::set_string_value(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.string_value_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void UninterpretedOption::set_string_value(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.string_value_.SetBytes(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.string_value)
 }
 inline std::string* UninterpretedOption::mutable_string_value() {
@@ -13347,11 +13499,13 @@ inline const std::string& UninterpretedOption::_internal_string_value() const {
 }
 inline void UninterpretedOption::_internal_set_string_value(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
+
+
   _impl_.string_value_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption::_internal_mutable_string_value() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.string_value_.Mutable(GetArenaForAllocation());
+  return _impl_.string_value_.Mutable( GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption::release_string_value() {
   // @@protoc_insertion_point(field_release:google.protobuf.UninterpretedOption.string_value)
@@ -13359,24 +13513,25 @@ inline std::string* UninterpretedOption::release_string_value() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.string_value_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.string_value_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.string_value_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void UninterpretedOption::set_allocated_string_value(std::string* string_value) {
-  if (string_value != nullptr) {
+inline void UninterpretedOption::set_allocated_string_value(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.string_value_.SetAllocated(string_value, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.string_value_.IsDefault()) {
-    _impl_.string_value_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.string_value_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.string_value_.IsDefault()) {
+          _impl_.string_value_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.UninterpretedOption.string_value)
 }
 
@@ -13393,11 +13548,11 @@ inline const std::string& UninterpretedOption::aggregate_value() const {
   // @@protoc_insertion_point(field_get:google.protobuf.UninterpretedOption.aggregate_value)
   return _internal_aggregate_value();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void UninterpretedOption::set_aggregate_value(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000004u;
- _impl_.aggregate_value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void UninterpretedOption::set_aggregate_value(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.aggregate_value_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.UninterpretedOption.aggregate_value)
 }
 inline std::string* UninterpretedOption::mutable_aggregate_value() {
@@ -13410,11 +13565,13 @@ inline const std::string& UninterpretedOption::_internal_aggregate_value() const
 }
 inline void UninterpretedOption::_internal_set_aggregate_value(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000004u;
+
+
   _impl_.aggregate_value_.Set(value, GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption::_internal_mutable_aggregate_value() {
   _impl_._has_bits_[0] |= 0x00000004u;
-  return _impl_.aggregate_value_.Mutable(GetArenaForAllocation());
+  return _impl_.aggregate_value_.Mutable( GetArenaForAllocation());
 }
 inline std::string* UninterpretedOption::release_aggregate_value() {
   // @@protoc_insertion_point(field_release:google.protobuf.UninterpretedOption.aggregate_value)
@@ -13422,24 +13579,25 @@ inline std::string* UninterpretedOption::release_aggregate_value() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000004u;
-  auto* p = _impl_.aggregate_value_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.aggregate_value_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.aggregate_value_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void UninterpretedOption::set_allocated_aggregate_value(std::string* aggregate_value) {
-  if (aggregate_value != nullptr) {
+inline void UninterpretedOption::set_allocated_aggregate_value(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000004u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000004u;
   }
-  _impl_.aggregate_value_.SetAllocated(aggregate_value, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.aggregate_value_.IsDefault()) {
-    _impl_.aggregate_value_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.aggregate_value_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.aggregate_value_.IsDefault()) {
+          _impl_.aggregate_value_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.UninterpretedOption.aggregate_value)
 }
 
@@ -13544,11 +13702,11 @@ inline const std::string& SourceCodeInfo_Location::leading_comments() const {
   // @@protoc_insertion_point(field_get:google.protobuf.SourceCodeInfo.Location.leading_comments)
   return _internal_leading_comments();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SourceCodeInfo_Location::set_leading_comments(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.leading_comments_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void SourceCodeInfo_Location::set_leading_comments(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.leading_comments_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.SourceCodeInfo.Location.leading_comments)
 }
 inline std::string* SourceCodeInfo_Location::mutable_leading_comments() {
@@ -13561,11 +13719,13 @@ inline const std::string& SourceCodeInfo_Location::_internal_leading_comments() 
 }
 inline void SourceCodeInfo_Location::_internal_set_leading_comments(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.leading_comments_.Set(value, GetArenaForAllocation());
 }
 inline std::string* SourceCodeInfo_Location::_internal_mutable_leading_comments() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.leading_comments_.Mutable(GetArenaForAllocation());
+  return _impl_.leading_comments_.Mutable( GetArenaForAllocation());
 }
 inline std::string* SourceCodeInfo_Location::release_leading_comments() {
   // @@protoc_insertion_point(field_release:google.protobuf.SourceCodeInfo.Location.leading_comments)
@@ -13573,24 +13733,25 @@ inline std::string* SourceCodeInfo_Location::release_leading_comments() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.leading_comments_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.leading_comments_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.leading_comments_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void SourceCodeInfo_Location::set_allocated_leading_comments(std::string* leading_comments) {
-  if (leading_comments != nullptr) {
+inline void SourceCodeInfo_Location::set_allocated_leading_comments(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.leading_comments_.SetAllocated(leading_comments, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.leading_comments_.IsDefault()) {
-    _impl_.leading_comments_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.leading_comments_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.leading_comments_.IsDefault()) {
+          _impl_.leading_comments_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.SourceCodeInfo.Location.leading_comments)
 }
 
@@ -13607,11 +13768,11 @@ inline const std::string& SourceCodeInfo_Location::trailing_comments() const {
   // @@protoc_insertion_point(field_get:google.protobuf.SourceCodeInfo.Location.trailing_comments)
   return _internal_trailing_comments();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void SourceCodeInfo_Location::set_trailing_comments(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.trailing_comments_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void SourceCodeInfo_Location::set_trailing_comments(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.trailing_comments_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.SourceCodeInfo.Location.trailing_comments)
 }
 inline std::string* SourceCodeInfo_Location::mutable_trailing_comments() {
@@ -13624,11 +13785,13 @@ inline const std::string& SourceCodeInfo_Location::_internal_trailing_comments()
 }
 inline void SourceCodeInfo_Location::_internal_set_trailing_comments(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000002u;
+
+
   _impl_.trailing_comments_.Set(value, GetArenaForAllocation());
 }
 inline std::string* SourceCodeInfo_Location::_internal_mutable_trailing_comments() {
   _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.trailing_comments_.Mutable(GetArenaForAllocation());
+  return _impl_.trailing_comments_.Mutable( GetArenaForAllocation());
 }
 inline std::string* SourceCodeInfo_Location::release_trailing_comments() {
   // @@protoc_insertion_point(field_release:google.protobuf.SourceCodeInfo.Location.trailing_comments)
@@ -13636,24 +13799,25 @@ inline std::string* SourceCodeInfo_Location::release_trailing_comments() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.trailing_comments_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.trailing_comments_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.trailing_comments_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void SourceCodeInfo_Location::set_allocated_trailing_comments(std::string* trailing_comments) {
-  if (trailing_comments != nullptr) {
+inline void SourceCodeInfo_Location::set_allocated_trailing_comments(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000002u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000002u;
   }
-  _impl_.trailing_comments_.SetAllocated(trailing_comments, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.trailing_comments_.IsDefault()) {
-    _impl_.trailing_comments_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.trailing_comments_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.trailing_comments_.IsDefault()) {
+          _impl_.trailing_comments_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.SourceCodeInfo.Location.trailing_comments)
 }
 
@@ -13692,21 +13856,20 @@ inline void SourceCodeInfo_Location::set_leading_detached_comments(int index, st
   // @@protoc_insertion_point(field_set:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
 }
 inline void SourceCodeInfo_Location::set_leading_detached_comments(int index, const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.leading_detached_comments_.Mutable(index)->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.leading_detached_comments_.Mutable(index)->assign(value);
   // @@protoc_insertion_point(field_set_char:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
+}
+inline void SourceCodeInfo_Location::set_leading_detached_comments(int index, const char* value,
+                              std::size_t size) {
+  _impl_.leading_detached_comments_.Mutable(index)->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
 }
 inline void SourceCodeInfo_Location::set_leading_detached_comments(int index, absl::string_view value) {
   _impl_.leading_detached_comments_.Mutable(index)->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_set_string_piece:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
 }
-inline void SourceCodeInfo_Location::set_leading_detached_comments(int index, const char* value, ::size_t size) {
-  _impl_.leading_detached_comments_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
-}
-inline std::string* SourceCodeInfo_Location::_internal_add_leading_detached_comments() {
-  return _impl_.leading_detached_comments_.Add();
-}
+inline std::string* SourceCodeInfo_Location::_internal_add_leading_detached_comments() { return _impl_.leading_detached_comments_.Add(); }
 inline void SourceCodeInfo_Location::add_leading_detached_comments(const std::string& value) {
   _impl_.leading_detached_comments_.Add()->assign(value);
   // @@protoc_insertion_point(field_add:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
@@ -13716,24 +13879,24 @@ inline void SourceCodeInfo_Location::add_leading_detached_comments(std::string&&
   // @@protoc_insertion_point(field_add:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
 }
 inline void SourceCodeInfo_Location::add_leading_detached_comments(const char* value) {
-  GOOGLE_ABSL_DCHECK(value != nullptr);  _impl_.leading_detached_comments_.Add()->assign(value);
+  GOOGLE_ABSL_DCHECK(value != nullptr);
+  _impl_.leading_detached_comments_.Add()->assign(value);
   // @@protoc_insertion_point(field_add_char:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
+}
+inline void SourceCodeInfo_Location::add_leading_detached_comments(const char* value, std::size_t size) {
+  _impl_.leading_detached_comments_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
 }
 inline void SourceCodeInfo_Location::add_leading_detached_comments(absl::string_view value) {
   _impl_.leading_detached_comments_.Add()->assign(value.data(), value.size());
   // @@protoc_insertion_point(field_add_string_piece:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
-}
-inline void SourceCodeInfo_Location::add_leading_detached_comments(const char* value, ::size_t size) {
-  _impl_.leading_detached_comments_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
 SourceCodeInfo_Location::leading_detached_comments() const {
   // @@protoc_insertion_point(field_list:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
   return _impl_.leading_detached_comments_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-SourceCodeInfo_Location::mutable_leading_detached_comments() {
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* SourceCodeInfo_Location::mutable_leading_detached_comments() {
   // @@protoc_insertion_point(field_mutable_list:google.protobuf.SourceCodeInfo.Location.leading_detached_comments)
   return &_impl_.leading_detached_comments_;
 }
@@ -13841,11 +14004,11 @@ inline const std::string& GeneratedCodeInfo_Annotation::source_file() const {
   // @@protoc_insertion_point(field_get:google.protobuf.GeneratedCodeInfo.Annotation.source_file)
   return _internal_source_file();
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void GeneratedCodeInfo_Annotation::set_source_file(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.source_file_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+template <typename Arg, typename... Args>
+inline PROTOBUF_ALWAYS_INLINE void GeneratedCodeInfo_Annotation::set_source_file(Arg&& arg,
+                                                     Args... args) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.source_file_.Set(static_cast<Arg&&>(arg), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:google.protobuf.GeneratedCodeInfo.Annotation.source_file)
 }
 inline std::string* GeneratedCodeInfo_Annotation::mutable_source_file() {
@@ -13858,11 +14021,13 @@ inline const std::string& GeneratedCodeInfo_Annotation::_internal_source_file() 
 }
 inline void GeneratedCodeInfo_Annotation::_internal_set_source_file(const std::string& value) {
   _impl_._has_bits_[0] |= 0x00000001u;
+
+
   _impl_.source_file_.Set(value, GetArenaForAllocation());
 }
 inline std::string* GeneratedCodeInfo_Annotation::_internal_mutable_source_file() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.source_file_.Mutable(GetArenaForAllocation());
+  return _impl_.source_file_.Mutable( GetArenaForAllocation());
 }
 inline std::string* GeneratedCodeInfo_Annotation::release_source_file() {
   // @@protoc_insertion_point(field_release:google.protobuf.GeneratedCodeInfo.Annotation.source_file)
@@ -13870,24 +14035,25 @@ inline std::string* GeneratedCodeInfo_Annotation::release_source_file() {
     return nullptr;
   }
   _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.source_file_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+
+  auto* released = _impl_.source_file_.Release();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.source_file_.Set("", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return released;
 }
-inline void GeneratedCodeInfo_Annotation::set_allocated_source_file(std::string* source_file) {
-  if (source_file != nullptr) {
+inline void GeneratedCodeInfo_Annotation::set_allocated_source_file(std::string* value) {
+  if (value != nullptr) {
     _impl_._has_bits_[0] |= 0x00000001u;
   } else {
     _impl_._has_bits_[0] &= ~0x00000001u;
   }
-  _impl_.source_file_.SetAllocated(source_file, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.source_file_.IsDefault()) {
-    _impl_.source_file_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.source_file_.SetAllocated(value, GetArenaForAllocation());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.source_file_.IsDefault()) {
+          _impl_.source_file_.Set("", GetArenaForAllocation());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:google.protobuf.GeneratedCodeInfo.Annotation.source_file)
 }
 
@@ -13905,7 +14071,6 @@ inline ::int32_t GeneratedCodeInfo_Annotation::begin() const {
   return _internal_begin();
 }
 inline void GeneratedCodeInfo_Annotation::set_begin(::int32_t value) {
-  ;
   _internal_set_begin(value);
   // @@protoc_insertion_point(field_set:google.protobuf.GeneratedCodeInfo.Annotation.begin)
 }
@@ -13931,7 +14096,6 @@ inline ::int32_t GeneratedCodeInfo_Annotation::end() const {
   return _internal_end();
 }
 inline void GeneratedCodeInfo_Annotation::set_end(::int32_t value) {
-  ;
   _internal_set_end(value);
   // @@protoc_insertion_point(field_set:google.protobuf.GeneratedCodeInfo.Annotation.end)
 }

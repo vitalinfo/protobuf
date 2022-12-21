@@ -167,7 +167,7 @@ class SingularPrimitive final : public FieldGeneratorBase {
 
   void GenerateConstexprAggregateInitializer(io::Printer* p) const override {
     p->Emit(R"cc(
-      /* .$field_$ = */ $kDefault$
+      /*decltype($field_$)*/ $kDefault$
     )cc");
   }
 
@@ -228,7 +228,6 @@ void SingularPrimitive::GenerateInlineAccessorDefinitions(
       return _internal_$name$();
     }
     inline void $Msg$::set_$name$($Type$ value) {
-      $PrepareSplitMessageForWrite$;
       _internal_set_$name$(value);
       $annotate_set$;
       // @@protoc_insertion_point(field_set:$pkg.Msg.field$)
@@ -340,7 +339,7 @@ class RepeatedPrimitive final : public FieldGeneratorBase {
 
   void GenerateConstexprAggregateInitializer(io::Printer* p) const override {
     p->Emit(R"cc(
-      /* .$field_$ = */ {}
+      /*decltype($field_$)*/ {}
     )cc");
     InitCachedSize(p);
   }
