@@ -37,11 +37,9 @@
 #include <tuple>
 #include <vector>
 
-#include "google/protobuf/descriptor.h"
 #include "absl/container/flat_hash_map.h"
 #include "google/protobuf/stubs/logging.h"
 #include "absl/memory/memory.h"
-#include "absl/strings/substitute.h"
 #include "absl/types/optional.h"
 #include "google/protobuf/compiler/cpp/field_generators/generators.h"
 #include "google/protobuf/compiler/cpp/helpers.h"
@@ -228,7 +226,6 @@ void SingularPrimitive::GenerateInlineAccessorDefinitions(
       return _internal_$name$();
     }
     inline void $Msg$::set_$name$($Type$ value) {
-      $PrepareSplitMessageForWrite$;
       _internal_set_$name$(value);
       $annotate_set$;
       // @@protoc_insertion_point(field_set:$pkg.Msg.field$)
