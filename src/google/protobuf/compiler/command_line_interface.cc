@@ -336,12 +336,14 @@ class CommandLineInterface::ErrorPrinter
   void RecordError(absl::string_view filename, absl::string_view element_name,
                    const Message* descriptor, ErrorLocation location,
                    absl::string_view message) override {
+    found_errors_ = true;
     AddErrorOrWarning(filename, -1, -1, message, "error", std::cerr);
   }
 
   void RecordWarning(absl::string_view filename, absl::string_view element_name,
                      const Message* descriptor, ErrorLocation location,
                      absl::string_view message) override {
+    found_warnings_ = true;
     AddErrorOrWarning(filename, -1, -1, message, "warning", std::clog);
   }
 
@@ -970,6 +972,57 @@ bool ContainsProto3Optional(const FileDescriptor* file) {
   return false;
 }
 
+template <typename T>
+struct VisitorImpl : T {
+  explicit VisitorImpl(T t) : T(t) {}
+  using T::operator();
+  void operator()(const void*) const {}
+};
+template <typename T>
+VisitorImpl<T> Visitor(T t) {
+  return VisitorImpl<T>(t);
+}
+
+template <typename F>
+void VisitDescriptor(const FieldDescriptor* descriptor, F f) {
+  f(descriptor);
+}
+
+template <typename F>
+void VisitDescriptor(const EnumDescriptor* descriptor, F f) {
+  f(descriptor);
+}
+
+template <typename F>
+void VisitDescriptor(const Descriptor* descriptor, F f) {
+  f(descriptor);
+  for (int i = 0; i < descriptor->enum_type_count(); i++) {
+    VisitDescriptor(descriptor->enum_type(i), f);
+  }
+
+  for (int i = 0; i < descriptor->field_count(); i++) {
+    VisitDescriptor(descriptor->field(i), f);
+  }
+
+  for (int i = 0; i < descriptor->nested_type_count(); i++) {
+    VisitDescriptor(descriptor->nested_type(i), f);
+  }
+}
+
+template <typename F>
+void VisitDescriptor(const std::vector<const FileDescriptor*>& descriptors,
+                     F f) {
+  for (auto* descriptor : descriptors) {
+    f(descriptor);
+    for (int i = 0; i < descriptor->message_type_count(); i++) {
+      VisitDescriptor(descriptor->message_type(i), f);
+    }
+    for (int i = 0; i < descriptor->enum_type_count(); i++) {
+      VisitDescriptor(descriptor->enum_type(i), f);
+    }
+  }
+}
+
 }  // namespace
 
 namespace {
@@ -1062,6 +1115,22 @@ int CommandLineInterface::Run(int argc, const char* const argv[]) {
                        &parsed_files)) {
     return 1;
   }
+
+  VisitDescriptor(
+      parsed_files, Visitor([&](const FieldDescriptor* field) {
+        if (field->number() >= FieldDescriptor::kFirstReservedNumber &&
+            field->number() <= FieldDescriptor::kLastReservedNumber) {
+          static_cast<DescriptorPool::ErrorCollector*>(error_collector.get())
+              ->RecordError(
+                  field->file()->name(), field->full_name(), nullptr,
+                  DescriptorPool::ErrorCollector::NUMBER,
+                  absl::Substitute("Field numbers $0 through $1 are reserved "
+                                   "for the protocol "
+                                   "buffer library implementation.",
+                                   FieldDescriptor::kFirstReservedNumber,
+                                   FieldDescriptor::kLastReservedNumber));
+        }
+      }));
 
 
   // We construct a separate GeneratorContext for each output location.  Note
