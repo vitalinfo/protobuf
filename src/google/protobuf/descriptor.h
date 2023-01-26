@@ -65,11 +65,13 @@
 #include "google/protobuf/port.h"
 #include "absl/base/attributes.h"
 #include "absl/base/call_once.h"
+#include "absl/container/btree_map.h"
 #include "absl/container/flat_hash_map.h"
 #include "absl/log/absl_check.h"
 #include "absl/log/absl_log.h"
 #include "absl/strings/string_view.h"
 #include "absl/synchronization/mutex.h"
+#include "absl/types/optional.h"
 #include "google/protobuf/port.h"
 
 // Must be included last.
@@ -116,6 +118,7 @@ class MethodOptions;
 class FileOptions;
 class UninterpretedOption;
 class SourceCodeInfo;
+class ExtensionMetadata;
 
 // Defined in message.h
 class Message;
@@ -140,6 +143,7 @@ class Formatter;
 
 namespace descriptor_unittest {
 class DescriptorTest;
+class ValidationErrorTest;
 }  // namespace descriptor_unittest
 
 // Defined in printer.h
@@ -1887,7 +1891,7 @@ class PROTOBUF_EXPORT DescriptorPool {
     // in a .proto file.
     enum ErrorLocation {
       NAME,           // the symbol name, or the package name for files
-      NUMBER,         // field or extension range number
+      NUMBER,         // field, extension range or extension decl number
       TYPE,           // field type
       EXTENDEE,       // field extendee
       DEFAULT_VALUE,  // field default value
@@ -2087,6 +2091,7 @@ class PROTOBUF_EXPORT DescriptorPool {
   friend class FileDescriptor;
   friend class DescriptorBuilder;
   friend class FileDescriptorTables;
+  friend class google::protobuf::descriptor_unittest::ValidationErrorTest;
 
   // Return true if the given name is a sub-symbol of any non-package
   // descriptor that already exists in the descriptor pool.  (The full
@@ -2162,6 +2167,7 @@ class PROTOBUF_EXPORT DescriptorPool {
   // Set of files to track for unused imports. The bool value when true means
   // unused imports are treated as errors (and as warnings when false).
   absl::flat_hash_map<std::string, bool> unused_import_track_files_;
+
 };
 
 
