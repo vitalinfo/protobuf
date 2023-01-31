@@ -5,11 +5,6 @@ inputs:
     required: true
     description: "The GCP credentials to use for reading the docker image"
     type: string
-  image:
-    required: false
-    default: us-docker.pkg.dev/protobuf-build/containers/common/linux/bazel:5.1.1-aec4d74f2eb6938fc53ef7d9a79a4bf2da24abc1
-    description: "The docker image to use"
-    type: string
   bazel-cache:
     required: true
     description: >
@@ -39,7 +34,7 @@ runs:
       id: bazel
       uses: ./.github/actions/internal/bazel-setup
       with:
-        credentials-file: /workspace/$(basename ${{ steps.auth.outputs.credentials-file }})
+        credentials-file: ${{ steps.auth.outputs.credentials-file }}
         bazel-cache: ${{ inputs.bazel-cache }}
 
     - name: Validate inputs
@@ -47,17 +42,12 @@ runs:
       shell: bash
       run: echo "Invalid specification of both non-Bazel and Bazel command"; exit 1
 
-    - name: Run Bash Docker
-      uses: ./.github/actions/internal/docker-run
+    - name: Run Bash
       if: ${{ inputs.bash }}
-      with:
-        image: ${{ inputs.image }}
-        run-flags: --entrypoint "/bin/bash"
-        command: -l -c "${{ inputs.bash }}"
+      run: ${{ inputs.bash }}
+      shell: bash
 
-    - name: Run Bazel Docker
-      uses: ./.github/actions/internal/docker-run
+    - name: Run Bazel
       if: ${{ !inputs.bash }}
-      with:
-        image: ${{ inputs.image }}
-        command: ${{ inputs.bazel }} ${{ steps.bazel.outputs.bazel-flags }}
+      run: bazel --version && bazel ${{ inputs.bazel }} ${{ steps.bazel.outputs.bazel-flags }}
+      shell: bash

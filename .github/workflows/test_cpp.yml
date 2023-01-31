@@ -88,8 +88,82 @@ jobs:
           submodules: recursive
           ref: ${{ inputs.safe-checkout }}
       - name: Run tests
-        uses: ./.github/actions/non-bazel-docker
+        uses: ./.github/actions/docker
         with:
           image: us-docker.pkg.dev/protobuf-build/containers/test/linux/cmake@sha256:cc23dbe065668158ca2732aa305a07bd0913a175b2079d27d9c16925d23f2335
           credentials: ${{ secrets.GAR_SERVICE_ACCOUNT }}
           command: ${{ matrix.command }}
+
+  macos:
+    #strategy:
+    #  fail-fast: false   # Don't cancel all jobs if one fails.
+    #  matrix:
+    #    include:
+    #      - name: MacOS
+    #        os: macos-latest
+    #        bazel: //src/...
+    #      - name: Windows
+    #        os: windows-latest
+    #        bazel: >
+    #          //src/...  @com_google_protobuf_examples//...
+    #          --test_tag_filters=-conformance --build_tag_filters=-conformance
+    #name: ${{ matrix.name }} Bazel
+    #runs-on: ${{ matrix.os }}
+    #steps:
+    #  - name: Checkout pending changes
+    #    uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+    #    with:
+    #      ref: ${{ inputs.safe-checkout }}
+    #  - name: Run tests
+    #    uses: ./.github/actions/bazel
+    #    with:
+    #      credentials: ${{ secrets.GAR_SERVICE_ACCOUNT }}
+    #      bazel: test ${{ matrix.bazel }}
+    #      bazel-cache: cpp_${{ matrix.os }}
+    name: MacOS Bazel
+    runs-on: macos-12
+    steps:
+      - name: Checkout pending changes
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          ref: ${{ inputs.safe-checkout }}
+      - name: Run tests
+        uses: ./.github/actions/bazel
+        with:
+          credentials: ${{ secrets.GAR_SERVICE_ACCOUNT }}
+          bazel: test //src/...
+          bazel-cache: cpp_macos-12
+
+  windows:
+    name: Windows Bazel
+    runs-on: windows-2019
+    steps:
+      - name: Checkout pending changes
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          ref: ${{ inputs.safe-checkout }}
+      #- name: Install Visual C++ build tools
+        # Install the 2019 version because Bazel doesn’t support anything newer
+        # in most versions; see
+        # https://docs.bazel.build/versions/5.0.0/install-windows.html#installing-compilers-and-language-runtimes.
+        #  choco install visualstudio2019buildtools
+        #  choco install visualstudio2019-workload-vctools
+      - name: Setup python
+        run: |
+          python --version
+          python3 --version
+          pip --version
+          pip3 --version
+          python -m venv C:\temp\venv
+          C:\temp\venv\Scripts\activate.bat
+          python --version
+          python3 --version
+          pip --version
+          pip3 --version
+
+      - name: Run tests
+        uses: ./.github/actions/bazel
+        with:
+          credentials: ${{ secrets.GAR_SERVICE_ACCOUNT }}
+          bash: USE_BAZEL_VERSION=5.1.0 bazelisk version; USE_BAZEL_VERSION=5.1.0 bazelisk test //src/... --test_tag_filters=-conformance --build_tag_filters=-conformance
+          bazel-cache: cpp_windows-2019
